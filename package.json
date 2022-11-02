@@ -1,22 +1,52 @@
 {
-  "name": "portifolio",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.24",
-    "@types/react-dom": "18.0.8",
-    "eslint": "8.26.0",
-    "eslint-config-next": "13.0.1",
-    "next": "13.0.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "4.8.4"
-  }
+	"name": "portfolio",
+	"version": "0.1.0",
+	"private": false,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"lint-fix": "next lint --fix",
+		"types": "tsc --pretty --noEmit",
+		"codegen": "graphql-codegen --require dotenv/config --config codegen.ts"
+	},
+	"dependencies": {
+		"@next/font": "^13.0.1",
+		"graphql": "^16.6.0",
+		"graphql-request": "^5.0.0",
+		"next": "13.0.1",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-icons": "^4.6.0"
+	},
+	"devDependencies": {
+		"@graphql-codegen/cli": "2.13.11",
+		"@graphql-codegen/client-preset": "1.1.3",
+		"@types/node": "^18.11.9",
+		"@types/react": "^18.0.24",
+		"@types/react-dom": "^18.0.8",
+		"@typescript-eslint/eslint-plugin": "^5.42.0",
+		"autoprefixer": "^10.4.13",
+		"dotenv": "^16.0.3",
+		"eslint": "^8.26.0",
+		"eslint-config-next": "^13.0.1",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-react": "^7.31.10",
+		"postcss": "^8.4.18",
+		"prettier": "^2.7.1",
+		"tailwind-styled-components": "^2.2.0",
+		"tailwindcss": "^3.2.1",
+		"typescript": "^4.8.4"
+	},
+	"engines": {
+		"node": ">=16.17.1",
+		"npm": ">=8.15.0"
+	},
+	"author": {
+		"name": "Gildson Alves",
+		"email": "gildson_af@outlook.com",
+		"url": "https://github.com/GilAlvez"
+	}
 }
