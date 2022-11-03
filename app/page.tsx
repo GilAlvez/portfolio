@@ -1,17 +1,26 @@
-import { client } from '../libs/graphql/client';
-import { getProjects } from '../libs/graphql/queries/projects';
+// import { client } from '../libs/graphql/client';
+// import { getProjects } from '../libs/graphql/queries/projects';
 
-export const revalidate = 3600;
+import Link from 'next/link';
 
-const Home = async () => {
-	const { projects } = await client.request(getProjects);
+export default async function Page() {
+	// const { projects } = await client.request(getProjects);
 	return (
-		<div>
-			<h2>
-				<strong>{projects[0].id}</strong>
-			</h2>
+		<div className="flex justify-between">
+			<div>
+				<h1>Gildson Alves</h1>
+			</div>
+			<div className="flex flex-col">
+				<Link href="/about" className="text-5xl">
+					Sobre
+				</Link>
+				<Link href="/work" className="text-5xl">
+					Trabalhos
+				</Link>
+				<Link href="/contact" className="text-5xl">
+					Contato
+				</Link>
+			</div>
 		</div>
 	);
-};
-
-export default Home;
+}
