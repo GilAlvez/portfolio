@@ -17,27 +17,44 @@ body {
 }
 
 @layer base {
+	/* BASE */
 	* {
 		@apply m-0 p-0 box-border;
 	}
 	body {
-		@apply antialiased min-h-screen transition font-normal 
-		text-slate-800 bg-slate-50 
-		dark:bg-slate-800 dark:text-slate-50 
+		@apply antialiased min-h-screen transition duration-1000 font-normal 
+		dark:bg-slate-800 dark:text-slate-100 
 		selection:bg-primary-100 selection:text-slate-800
 		dark:selection:bg-slate-700 dark:selection:text-primary-50;
 	}
 	a {
 		@apply cursor-pointer;
 	}
-	header,
-	footer,
-	main,
-	section {
-		@apply px-5 md:px-32 lg:px-48 2xl:px-72 transition;
+
+	/* TYPOGRAPHY */
+	h1 {
+		@apply text-7xl;
 	}
-	main,
-	section {
-		@apply py-10;
+	h2 {
+		@apply text-3xl;
+	}
+	h3 {
+		@apply text-2xl;
+	}
+	h4 {
+		@apply text-xl;
+	}
+	h5 {
+		@apply text-lg;
+	}
+	h6,
+	p,
+	a,
+	span {
+		@apply text-base;
+	}
+	b,
+	strong {
+		@apply font-medium;
 	}
 }
