@@ -4,7 +4,7 @@
 
 html {
 	/* 62.5% let 1rem = 10px + calc with reduced screen width that return a fluid font-size(global spacing) for responsiveness */
-	font-size: calc(62.5% + 4px + (100vw / 600));
+	font-size: calc(62.5% + 1px + (100vw / 400));
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: slatescale;
@@ -23,6 +23,7 @@ body {
 	}
 	body {
 		@apply antialiased min-h-screen transition duration-1000 font-normal 
+		bg-slate-100 text-slate-800
 		dark:bg-slate-800 dark:text-slate-100 
 		selection:bg-primary-100 selection:text-slate-800
 		dark:selection:bg-slate-700 dark:selection:text-primary-50;
@@ -30,10 +31,13 @@ body {
 	a {
 		@apply cursor-pointer;
 	}
+	*[data-nextjs-scroll-focus-boundary] {
+		@apply h-full;
+	}
 
 	/* TYPOGRAPHY */
 	h1 {
-		@apply text-7xl;
+		@apply text-8xl;
 	}
 	h2 {
 		@apply text-3xl;

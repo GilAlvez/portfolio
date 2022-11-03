@@ -18,8 +18,8 @@ export default function RootLayout({ children }: LayoutRootProps) {
 					</header>
 					<main className="h-full border p-10 border-slate-500">{children}</main>
 
-					<footer className="h-10 text-sm opacity-70 mt-auto grid place-items-center">
-						Designed and coded by Gildson Alves © 2022
+					<footer className="select-none h-10 text-sm opacity-70 mt-auto grid place-items-center">
+						Designed and coded by Gildson Alves © 2022 (W.I.P.)
 					</footer>
 				</section>
 			</body>
