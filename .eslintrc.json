@@ -18,7 +18,6 @@
 	},
 	"plugins": ["react"],
 	"rules": {
-		"no-console": "warn",
 		"react/react-in-jsx-scope": "off",
 		"@typescript-eslint/explicit-function-return-type": "off",
 		"@typescript-eslint/restrict-template-expressions": "off",
