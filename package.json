@@ -13,6 +13,8 @@
 	},
 	"dependencies": {
 		"@next/font": "^13.0.1",
+		"encoding": "^0.1.13",
+		"framer-motion": "^7.6.4",
 		"graphql": "^16.6.0",
 		"graphql-request": "^5.0.0",
 		"next": "13.0.1",
