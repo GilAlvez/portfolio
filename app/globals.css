@@ -51,12 +51,6 @@ body {
 	h5 {
 		@apply text-xl;
 	}
-	h6,
-	p,
-	a,
-	span {
-		@apply text-base;
-	}
 	b,
 	strong {
 		@apply font-medium;
