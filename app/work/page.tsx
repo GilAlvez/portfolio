@@ -23,10 +23,10 @@ const Work = () => {
 				</div>
 			</div>
 			<div className="flex flex-col gap-4">
-				<WorkCard />
-				<WorkCard />
-				<WorkCard />
-				<WorkCard />
+				<WorkCard link="/work/test1" />
+				<WorkCard link="/work/test2" />
+				<WorkCard link="/work/test3" />
+				<WorkCard link="/work/test4" />
 			</div>
 		</div>
 	);
