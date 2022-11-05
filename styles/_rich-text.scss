@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	.rich-text {
+		* {
+			@apply font-light;
+		}
+		h1 {
+			@apply text-8xl;
+		}
+		h2 {
+			@apply text-4xl;
+		}
+		h3 {
+			@apply text-3xl;
+		}
+		h4 {
+			@apply text-2xl;
+		}
+		h5 {
+			@apply text-xl;
+		}
+		h6,
+		p,
+		a,
+		ul,
+		ol {
+			@apply text-lg;
+		}
+		ul,
+		ol {
+			@apply list-disc list-inside;
+		}
+		p {
+			@apply first-of-type:indent-12 w-3/5 break-words;
+		}
+		a {
+			@apply font-semibold hover:underline hover:underline-offset-2 hover:decoration-primary-500;
+		}
+		img {
+			@apply max-h-[30rem] select-none -mx-24 w-4/5 object-cover;
+		}
+		b,
+		strong {
+			@apply font-medium;
+		}
+	}
+}
