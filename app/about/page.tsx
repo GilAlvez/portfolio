@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
 import Link from 'next/link';
 
 const About = () => {
@@ -21,8 +21,14 @@ const About = () => {
 				</div>
 			</div>
 			<div className="flex flex-col gap-8 justify-center items-center">
-				<figure className="h-80 w-80 object-cover">
-					<img src={'/AboutMe.jpg'} alt="Gildson Foto" />
+				<figure className="relative h-80 w-80 object-cover">
+					<Image
+						src={'/AboutMe.jpg'}
+						alt="Gildson Foto"
+						fill
+						priority
+						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+					/>
 				</figure>
 				<p className="text-xl text-center w-2/3">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam dolor, ut consequuntur quis, numquam

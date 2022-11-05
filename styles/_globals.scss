@@ -22,7 +22,7 @@ body {
 		@apply m-0 p-0 box-border;
 	}
 	body {
-		@apply antialiased min-h-screen transition duration-1000 font-normal 
+		@apply antialiased min-h-screen transition duration-1000 font-light 
 		bg-slate-100 text-slate-800
 		dark:bg-slate-800 dark:text-slate-100 
 		selection:bg-primary-100 selection:text-slate-800
@@ -37,28 +37,30 @@ body {
 
 	/* TYPOGRAPHY */
 	h1 {
-		@apply text-8xl;
+		@apply text-8xl font-normal;
 	}
 	h2 {
-		@apply text-3xl;
+		@apply text-4xl font-normal;
 	}
 	h3 {
-		@apply text-2xl;
+		@apply text-3xl font-normal;
 	}
 	h4 {
-		@apply text-xl;
+		@apply text-2xl font-normal;
 	}
 	h5 {
-		@apply text-lg;
+		@apply text-xl;
 	}
-	h6,
-	p,
-	a,
-	span {
-		@apply text-base;
+	h6 {
+		@apply text-lg;
 	}
 	b,
 	strong {
 		@apply font-medium;
+	}
+
+	/* UTILITIES */
+	.scrollbar::-webkit-scrollbar {
+		@apply w-0;
 	}
 }
