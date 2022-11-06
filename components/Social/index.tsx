@@ -8,10 +8,15 @@ interface SocialProps {
 
 const Social = ({ link, icon, name }: SocialProps) => {
 	return (
-		<a className="w-max" href={link} target="_blank" rel="noreferrer noopener">
-			<figure className="flex gap-4 items-center">
+		<a
+			className="w-max rounded-lg hover:bg-slate-200 hover:dark:bg-slate-800"
+			href={link}
+			target="_blank"
+			rel="noreferrer noopener"
+		>
+			<figure className="flex items-center">
 				{icon}
-				<figcaption className="text-xl">{name}</figcaption>
+				<figcaption className="text-2xl px-4">{name}</figcaption>
 			</figure>
 		</a>
 	);

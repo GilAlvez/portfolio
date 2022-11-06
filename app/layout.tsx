@@ -16,9 +16,11 @@ export default function RootLayout({ children }: LayoutRootProps) {
 					<div className="h-10 flex justify-end">
 						<ToggleTheme />
 					</div>
-					<main className="h-full scrollbar overflow-y-scroll border p-10 border-slate-500">{children}</main>
+					<main className="h-full backdrop-blur bg-transparent scrollbar overflow-y-scroll border p-10 border-slate-500/50">
+						{children}
+					</main>
 
-					<footer className="mt-auto select-none py-2 text-center text-sm opacity-70 ">
+					<footer className="mt-auto select-none py-2 text-center font-normal text-sm opacity-90">
 						Designed and coded by Gildson Alves © 2022 (W.I.P.)
 					</footer>
 				</body>
