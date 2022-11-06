@@ -4,12 +4,6 @@
 
 @layer base {
 	.rich-text {
-		* {
-			@apply font-light;
-		}
-		h1 {
-			@apply text-8xl;
-		}
 		h2 {
 			@apply text-4xl;
 		}
@@ -31,16 +25,22 @@
 		}
 		ul,
 		ol {
-			@apply list-disc list-inside;
+			@apply list-none list-inside;
+		}
+		ul {
+			@apply self-end flex gap-3;
+			li {
+				@apply text-xs px-2 bg-slate-500/40;
+			}
 		}
 		p {
-			@apply first-of-type:indent-12 w-3/5 break-words;
+			@apply first-of-type:indent-12 lg:w-4/5 break-words;
 		}
 		a {
 			@apply font-semibold hover:underline hover:underline-offset-2 hover:decoration-primary-500;
 		}
 		img {
-			@apply max-h-[30rem] select-none -mx-24 w-4/5 object-cover;
+			@apply max-h-[30rem] select-none -mx-24 w-full object-cover;
 		}
 		b,
 		strong {
