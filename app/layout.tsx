@@ -1,8 +1,8 @@
-import { Work_Sans } from '@next/font/google';
+import { Exo } from '@next/font/google';
 import ToggleTheme from '../components/ToggleTheme';
 import '../styles/index.scss';
 
-const workSans = Work_Sans();
+const font = Exo();
 
 interface LayoutRootProps {
 	children: React.ReactNode;
@@ -11,12 +11,12 @@ interface LayoutRootProps {
 export default function RootLayout({ children }: LayoutRootProps) {
 	return (
 		<>
-			<html className={`dark ${workSans.className}`}>
+			<html className={`${font.className} dark`}>
 				<body className="min-h-full px-9 flex flex-col justify-start">
 					<div className="h-10 flex justify-end">
 						<ToggleTheme />
 					</div>
-					<main className="h-full backdrop-blur bg-transparent scrollbar overflow-y-scroll border p-10 border-slate-500/50">
+					<main className="h-full backdrop-blur bg-transparent scrollbar overflow-y-scroll border p-10 border-zinc-500/50">
 						{children}
 					</main>
 
