@@ -8,7 +8,7 @@ const ToggleTheme = () => {
 	};
 
 	return (
-		<button className="outline-0 p-2 text-xl hover:bg-slate-500/40" onClick={handleTheme}>
+		<button className="outline-0 p-2 text-xl hover:bg-zinc-500/40" onClick={handleTheme}>
 			<CgDarkMode />
 		</button>
 	);
