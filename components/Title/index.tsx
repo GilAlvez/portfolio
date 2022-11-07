@@ -8,9 +8,9 @@ const Title = () => {
 	return (
 		<div>
 			<Link href="/">
-				<h1 className="">Gildson Alves</h1>
+				<h1 className="font-medium">Gildson Alves</h1>
 			</Link>
-			<h2>Front-end Developer</h2>
+			<h2 className="text-zinc-500 font-light">Front-end Developer</h2>
 		</div>
 	);
 };

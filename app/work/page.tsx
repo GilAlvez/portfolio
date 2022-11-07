@@ -9,7 +9,7 @@ const Work = () => {
 				<Title />
 				<Navigator />
 			</div>
-			<div className="flex flex-col overflow-y-scroll scrollbar -my-10 pt-52 gap-8">
+			<div className="flex flex-col overflow-y-scroll scrollbar -my-10 py-52 gap-8">
 				<WorkCard link="/work/test1" />
 				<WorkCard link="/work/test2" />
 				<WorkCard link="/work/test3" />
