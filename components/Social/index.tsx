@@ -9,7 +9,7 @@ interface SocialProps {
 const Social = ({ link, icon, name }: SocialProps) => {
 	return (
 		<a
-			className="w-max rounded-lg hover:bg-slate-200 hover:dark:bg-slate-800"
+			className="w-max rounded-lg hover:bg-zinc-200 hover:dark:bg-primary-900/50 transition"
 			href={link}
 			target="_blank"
 			rel="noreferrer noopener"

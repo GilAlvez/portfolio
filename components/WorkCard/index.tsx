@@ -20,8 +20,8 @@ const WorkCard = ({ link }: WorkCardProps) => {
 						tenetur? Doloribus tempora magni vero! Lorem.
 					</p>
 					<div className="flex flex-wrap gap-4">
-						<span className="bg-slate-500/40 px-2">React</span>
-						<span className="bg-slate-500/40 px-2">Typescript</span>
+						<span className="bg-zinc-500/40 px-2">React</span>
+						<span className="bg-zinc-500/40 px-2">Typescript</span>
 					</div>
 				</div>
 			</Link>

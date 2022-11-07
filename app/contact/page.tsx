@@ -15,27 +15,27 @@ const Contact = () => {
 				<Social
 					link="https://www.linkedin.com/in/gildson-alves/"
 					name="LinkedIn"
-					icon={<FaLinkedinIn className="text-6xl p-3 rounded-lg bg-slate-300 dark:bg-slate-700" />}
+					icon={<FaLinkedinIn className="text-6xl p-3 rounded-lg bg-zinc-300 dark:bg-primary-500/30" />}
 				/>
 				<Social
 					link="https://www.linkedin.com/in/gildson-alves/"
 					name="Instagram"
-					icon={<FaInstagram className="text-6xl p-3 rounded-lg bg-slate-300 dark:bg-slate-700" />}
+					icon={<FaInstagram className="text-6xl p-3 rounded-lg bg-zinc-300 dark:bg-primary-500/30" />}
 				/>
 				<Social
 					link="https://www.linkedin.com/in/gildson-alves/"
 					name="Whatsapp"
-					icon={<FaWhatsapp className="text-6xl p-3 rounded-lg bg-slate-300 dark:bg-slate-700" />}
+					icon={<FaWhatsapp className="text-6xl p-3 rounded-lg bg-zinc-300 dark:bg-primary-500/30" />}
 				/>
 				<Social
 					link="https://www.linkedin.com/in/gildson-alves/"
 					name="LinkedIn"
-					icon={<FaGithub className="text-6xl p-3 rounded-lg bg-slate-300 dark:bg-slate-700" />}
+					icon={<FaGithub className="text-6xl p-3 rounded-lg bg-zinc-300 dark:bg-primary-500/30" />}
 				/>
 				<Social
 					link="https://www.linkedin.com/in/gildson-alves/"
 					name="Email"
-					icon={<HiEnvelope className="text-6xl p-3 rounded-lg bg-slate-300 dark:bg-slate-700" />}
+					icon={<HiEnvelope className="text-6xl p-3 rounded-lg bg-zinc-300 dark:bg-primary-500/30" />}
 				/>
 			</div>
 		</div>
