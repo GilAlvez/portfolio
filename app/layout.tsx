@@ -16,7 +16,8 @@ export default function RootLayout({ children }: LayoutRootProps) {
 					<div className="h-10 flex justify-end">
 						<ToggleTheme />
 					</div>
-					<main className="h-full backdrop-blur bg-transparent scrollbar overflow-y-scroll border p-10 border-zinc-500/50">
+					<div className="absolute right-24 top-24 w-80 aspect-square opacity-30 rounded-full bg-red-500" />
+					<main className="h-full backdrop-blur-3xl bg-white/5 backdrop-brightness-90 dark:backdrop-brightness-75 scrollbar overflow-y-scroll border rounded-md p-10 border-zinc-500/50">
 						{children}
 					</main>
 
