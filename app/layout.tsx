@@ -20,7 +20,7 @@ export default function RootLayout({ children }: LayoutRootProps) {
 						<ToggleTheme />
 					</div>
 					<BackgroundAnimation />
-					<main className="relative h-full backdrop-blur-3xl lg:backdrop-blur-[90px] backdrop-brightness-90 dark:backdrop-brightness-50 scrollbar overflow-y-scroll border rounded-md p-10 border-zinc-500/50">
+					<main className="h-full backdrop-blur-3xl lg:backdrop-blur-[90px] backdrop-brightness-[1.15] dark:backdrop-brightness-50 scrollbar overflow-y-scroll border rounded-md p-10 border-zinc-500/50">
 						{children}
 					</main>
 					<footer className="mt-auto select-none py-2 text-center font-normal text-sm opacity-90">
