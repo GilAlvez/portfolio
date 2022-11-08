@@ -10,7 +10,7 @@ const About = () => {
 				<Navigator />
 			</div>
 			<div className="overflow-y-scroll scrollbar lg:py-52 -my-10">
-				<figure className="bg-primary-500/80 relative mx-auto mb-10 w-80 aspect-square rounded-lg">
+				<figure className="bg-primary-500/80 relative mx-auto mb-10 w-80 h-80">
 					<AboutImage
 						src={'/AboutMe.jpg'}
 						alt="Gildson Foto"
