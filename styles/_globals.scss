@@ -20,8 +20,8 @@ body {
 		@apply m-0 p-0 box-border;
 	}
 	body {
-		@apply antialiased min-h-screen transition duration-500 font-light 
-		bg-zinc-100 text-black
+		@apply antialiased min-h-screen transition duration-300 font-light 
+		bg-zinc-200 text-black
 		dark:bg-zinc-900 dark:text-zinc-300 
 		selection:bg-primary-300 selection:text-zinc-800
 		dark:selection:bg-zinc-800 dark:selection:text-primary-400;
