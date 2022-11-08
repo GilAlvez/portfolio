@@ -2,9 +2,9 @@ const NoiseFilter = () => {
 	return (
 		<svg className="absolute pointer-events-none inset-0 h-full w-full">
 			<filter id="noiseFilter">
-				<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch" />
+				<feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="3" stitchTiles="stitch" />
 			</filter>
-			<rect width="100%" height="100%" filter="url(#noiseFilter)" opacity="0.22" />
+			<rect width="100%" height="100%" filter="url(#noiseFilter)" opacity="0.2" />
 		</svg>
 	);
 };
