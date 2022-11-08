@@ -6,8 +6,6 @@ html {
 	/* 62.5% let 1rem = 10px + calc with reduced screen width that return a fluid font-size(global spacing) for responsiveness */
 	font-size: calc(62.5% + (100vw / 300));
 	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: slatescale;
 	-webkit-text-size-adjust: 100%;
 	height: -webkit-fill-available;
 }

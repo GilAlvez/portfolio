@@ -10,7 +10,9 @@ const Title = () => {
 			<Link href="/">
 				<h1 className="font-medium">Gildson Alves</h1>
 			</Link>
-			<h2 className="text-zinc-500 font-light">Front-end Developer</h2>
+			<h2 className="transition duration-500 text-zinc-900/60 dark:text-zinc-200/60 font-light">
+				Front-end Developer
+			</h2>
 		</div>
 	);
 };
