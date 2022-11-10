@@ -20,8 +20,8 @@ const Work = async () => {
 				<Navigator />
 			</div>
 			<div className="flex flex-col overflow-y-scroll scrollbar -my-10 py-52 gap-8">
-				{owner.works.map(({ slug }) => (
-					<WorkCard key={slug} link={`/work/${slug}`} />
+				{owner.works.map((work) => (
+					<WorkCard key={work.slug} data={work} />
 				))}
 			</div>
 		</div>
