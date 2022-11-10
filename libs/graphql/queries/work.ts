@@ -1,5 +1,13 @@
 import { graphql } from '../gql';
 
+export const getWorksSlugs = graphql(`
+	query WorkSlug {
+		works {
+			slug
+		}
+	}
+`);
+
 export const getWorkSEO = graphql(`
 	query WorkSEO($slug: String!) {
 		work(where: { slug: $slug }) {
