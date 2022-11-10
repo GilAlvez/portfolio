@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import { BsArrowUpRight } from 'react-icons/bs';
 import { client } from '../../../libs/graphql/client';
-import { getWorkBySlug } from '../../../libs/graphql/queries/work';
+import { getWorkBySlug, getWorksSlugs } from '../../../libs/graphql/queries/work';
 import { PageProps } from '../../../types/PageProps';
+
+export const dynamicParams = false;
 
 const WorkBySlug = async ({ params }: PageProps<{ slug: string }>) => {
 	const { slug } = params;
@@ -56,3 +58,11 @@ const WorkBySlug = async ({ params }: PageProps<{ slug: string }>) => {
 };
 
 export default WorkBySlug;
+
+export async function generateStaticParams() {
+	const { works } = await client.request(getWorksSlugs);
+
+	return works.map((work) => ({
+		slug: work.slug,
+	}));
+}
