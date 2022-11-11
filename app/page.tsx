@@ -1,6 +1,7 @@
 import Navigator from '../components/Navigator';
 import Title from '../components/Title';
 
+import PageAnimation from '../components/Animate/PageAnimation';
 import { client } from '../libs/graphql/client';
 import { getOwnerHeading } from '../libs/graphql/queries/owner';
 
@@ -10,14 +11,16 @@ const Page = async () => {
 	} = await client.request(getOwnerHeading);
 
 	return (
-		<div className="grid grid-cols-1 md:grid-cols-2 gap-32 h-full">
-			<div className="flex flex-col justify-between">
-				<Title name={owner?.name} subtitle={owner?.subtitle} />
-				<Navigator />
-			</div>
+		<PageAnimation>
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-32 h-full">
+				<div className="flex flex-col justify-between">
+					<Title name={owner?.name} subtitle={owner?.subtitle} />
+					<Navigator />
+				</div>
 
-			<div></div>
-		</div>
+				<div></div>
+			</div>
+		</PageAnimation>
 	);
 };
 
