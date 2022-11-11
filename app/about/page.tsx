@@ -4,6 +4,8 @@ import { client } from '../../libs/graphql/client';
 import { getOwnerAbout, getOwnerHeading } from '../../libs/graphql/queries/owner';
 import { AboutImage } from './styles';
 
+import sanitizeHtml from 'sanitize-html';
+
 const About = async () => {
 	const {
 		owners: [heading],
@@ -29,7 +31,10 @@ const About = async () => {
 						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 					/>
 				</figure>
-				<div className="rich-text flex flex-col items-center gap-4">{about.description.html}</div>
+				<div
+					className="rich-text flex flex-col items-center gap-4"
+					dangerouslySetInnerHTML={{ __html: sanitizeHtml(about.description.html) }}
+				/>
 			</div>
 		</div>
 	);
