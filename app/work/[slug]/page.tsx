@@ -1,86 +1,67 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import { BsArrowUpRight } from 'react-icons/bs';
+import { client } from '../../../libs/graphql/client';
+import { getWorkBySlug, getWorksSlugs } from '../../../libs/graphql/queries/work';
 
-interface WorkBySlugPage {
-	params: {
-		slug: string;
-	};
-}
+export const dynamicParams = false;
 
-const WorkBySlug = ({ params }: WorkBySlugPage) => {
+const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
+	const { slug } = params;
+	const { work } = await client.request(getWorkBySlug, { slug });
+
 	return (
 		<>
 			<figure className="-mx-10 -mt-10 h-40 relative brightness-90 select-none">
 				<Image src={'/Dashboard.jpg'} alt="Banner do projeto" className="object-cover" fill priority />
 			</figure>
 			<div className="flex flex-col gap-8 py-8 container mx-auto lg:px-32 2xl:px-52">
-				<h1>{params.slug}</h1>
+				<h1>{work?.title}</h1>
 				<hr />
 				<div className="grid grid-cols-2 gap-8">
 					<table className="table-auto">
 						<tbody>
 							<tr className="align-top">
 								<td className="pr-6 pb-6 font-semibold">Lançamento</td>
-								<td className="pr-6 pb-6">2022</td>
+								<td className="pr-6 pb-6">{work?.release}</td>
 							</tr>
 							<tr className="align-top">
 								<td className="pr-6 pb-6 font-semibold">Atribuições</td>
-								<td className="pr-6 pb-6">
-									TechLeader, Design,TechLeader, Design,TechLeader, Design,TechLeader, Design,TechLeader,
-									Design, TechLeader, Design,TechLeader, Design,TechLeader, Design,TechLeader,
-									Design,TechLeader, Design,
-								</td>
+								<td className="pr-6 pb-6">{work?.responsibilities.map((item) => `${item}, `)}</td>
 							</tr>
 							<tr className="align-top">
 								<td className="pr-6 pb-6 font-semibold">Tecnologias</td>
-								<td className="pr-6 pb-6">React, Tytdescritdt</td>
+								<td className="pr-6 pb-6">{work?.techs.map((item) => `${item}, `)}</td>
 							</tr>
 						</tbody>
 					</table>
 					<div className="flex flex-col gap-6">
-						<p>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque quisquam necessitatibus aperiam
-							illum, vero, praesentium vitae assumenda repellat laborum dolorem deserunt sed commodi! Quas
-							voluptate nostrum error illum facilis corporis?
-						</p>
+						<p>{work?.resume}</p>
 						<a
 							className="text-lg flex items-center gap-2 w-max"
-							href="www.google.com.br"
+							href={work?.link as any}
 							target="_blank"
 							rel="noreferrer noopener"
 						>
-							<span>www.google.com.br</span>
+							<span>{work?.link}</span>
 							<BsArrowUpRight />
 						</a>
 					</div>
 				</div>
 				<hr />
 
-				<section className="rich-text flex flex-col items-center gap-8">
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis veritatis amet rerum
-						dignissimos quo quas tempore, <a>illum sed nisi</a>. Consequuntur deserunt vero veniam voluptates
-						quas est a aut, ullam tempore.
-					</p>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis veritatis amet rerum
-						dignissimos quo quas tempore, <a>illum sed nisi</a>. asf Consequuntur deserunt vero veniam
-						voluptates quas est a aut, ullam tempore.
-					</p>
-					<img src="/Dashboard.jpg" alt="Gildson Foto" />
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis veritatis amet rerum
-						dignissimos quo quas tempore, <a>illum sed nisi</a>. asf Consequuntur deserunt vero veniam
-						voluptates quas est a aut, ullam tempore. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Reiciendis veritatis amet rerum dignissimos quo quas tempore, <a>illum sed nisi</a>. asf
-						Consequuntur deserunt vero veniam voluptates quas est a aut, ullam tempore.
-					</p>
-				</section>
-				<span className="text-end">{new Date().toLocaleString()}</span>
+				<section className="rich-text flex flex-col items-center gap-8">{work?.content.html}</section>
+				<span className="text-end">{work?.updatedAt}</span>
 			</div>
 		</>
 	);
 };
 
 export default WorkBySlug;
+
+export async function generateStaticParams() {
+	const { works } = await client.request(getWorksSlugs);
+
+	return works.map((work) => ({
+		slug: work.slug,
+	}));
+}

@@ -5,8 +5,9 @@ import NoiseFilter from '../components/NoiseFilter';
 import ToggleTheme from '../components/ToggleTheme';
 import '../styles/index.scss';
 
-const font = Exo();
+export const revalidate = 3600;
 
+const font = Exo();
 interface LayoutRootProps {
 	children: React.ReactNode;
 }
