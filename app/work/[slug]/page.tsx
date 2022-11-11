@@ -4,6 +4,7 @@ import { client } from '../../../libs/graphql/client';
 import { getWorkBySlug, getWorksSlugs } from '../../../libs/graphql/queries/work';
 
 import sanitizeHtml from 'sanitize-html';
+import PageAnimation from '../../../components/Animate/PageAnimation';
 
 export const dynamicParams = false;
 
@@ -12,7 +13,7 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 	const { work } = await client.request(getWorkBySlug, { slug });
 
 	return (
-		<>
+		<PageAnimation>
 			<figure className="-mx-10 -mt-10 h-40 relative select-none">
 				<Image
 					src={work?.banner.url as string}
@@ -63,7 +64,7 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 				/>
 				<span className="text-end">{new Date(work?.updatedAt).toLocaleString()}</span>
 			</div>
-		</>
+		</PageAnimation>
 	);
 };
 
