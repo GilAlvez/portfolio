@@ -1,8 +1,7 @@
 import { client } from '../../../libs/graphql/client';
 import { getWorkSEO } from '../../../libs/graphql/queries/work';
-import { PageProps } from '../../../types/PageProps';
 
-const Head = async ({ params }: PageProps<{ slug: string }>) => {
+const Head = async ({ params }: { params: { slug: string } }) => {
 	const { slug } = params;
 	const { work } = await client.request(getWorkSEO, { slug });
 

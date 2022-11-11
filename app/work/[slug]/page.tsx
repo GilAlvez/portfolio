@@ -2,11 +2,10 @@ import Image from 'next/image';
 import { BsArrowUpRight } from 'react-icons/bs';
 import { client } from '../../../libs/graphql/client';
 import { getWorkBySlug, getWorksSlugs } from '../../../libs/graphql/queries/work';
-import { PageProps } from '../../../types/PageProps';
 
 export const dynamicParams = false;
 
-const WorkBySlug = async ({ params }: PageProps<{ slug: string }>) => {
+const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 	const { slug } = params;
 	const { work } = await client.request(getWorkBySlug, { slug });
 
