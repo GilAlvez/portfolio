@@ -3,6 +3,8 @@ import { BsArrowUpRight } from 'react-icons/bs';
 import { client } from '../../../libs/graphql/client';
 import { getWorkBySlug, getWorksSlugs } from '../../../libs/graphql/queries/work';
 
+import sanitizeHtml from 'sanitize-html';
+
 export const dynamicParams = false;
 
 const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
@@ -23,7 +25,7 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 			<div className="flex flex-col gap-8 py-8 container mx-auto lg:px-32 2xl:px-52">
 				<h1>{work?.title}</h1>
 				<hr />
-				<div className="grid grid-cols-2 gap-8">
+				<section className="grid grid-cols-2 gap-8">
 					<table className="table-auto w-fit">
 						<tbody>
 							<tr className="align-top ">
@@ -52,11 +54,14 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 							<BsArrowUpRight />
 						</a>
 					</div>
-				</div>
+				</section>
 				<hr />
 
-				<section className="rich-text flex flex-col items-center gap-8">{work?.content.html}</section>
-				<span className="text-end">{work?.updatedAt}</span>
+				<section
+					className="rich-text flex flex-col items-center gap-8"
+					dangerouslySetInnerHTML={{ __html: sanitizeHtml(work?.content.html as string) }}
+				/>
+				<span className="text-end">{new Date(work?.updatedAt).toLocaleString()}</span>
 			</div>
 		</>
 	);

@@ -20,7 +20,8 @@
 		"next": "^13.0.3",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"react-icons": "^4.6.0"
+		"react-icons": "^4.6.0",
+		"sanitize-html": "^2.7.3"
 	},
 	"devDependencies": {
 		"@graphql-codegen/cli": "2.13.11",
@@ -29,6 +30,7 @@
 		"@types/node": "^18.11.9",
 		"@types/react": "^18.0.25",
 		"@types/react-dom": "^18.0.8",
+		"@types/sanitize-html": "^2.6.2",
 		"@typescript-eslint/eslint-plugin": "^5.42.1",
 		"autoprefixer": "^10.4.13",
 		"dotenv": "^16.0.3",
