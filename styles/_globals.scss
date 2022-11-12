@@ -29,8 +29,8 @@ body {
 	a {
 		@apply cursor-pointer;
 	}
-	*[data-nextjs-scroll-focus-boundary] {
-		@apply h-full;
+	[data-nextjs-scroll-focus-boundary] {
+		@apply contents;
 	}
 
 	/* TYPOGRAPHY */
