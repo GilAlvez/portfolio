@@ -21,7 +21,7 @@ const Work = async () => {
 					<Title name={heading?.name} subtitle={heading?.subtitle} />
 					<Navigator />
 				</div>
-				<div className="flex flex-col overflow-y-scroll scrollbar -my-10 py-52 gap-8">
+				<div className="flex flex-col overflow-y-scroll scrollbar -my-10 py-52">
 					{owner.works.map((work) => (
 						<WorkCard key={work.slug} data={work} />
 					))}
