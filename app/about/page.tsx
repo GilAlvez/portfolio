@@ -16,13 +16,13 @@ const About = async () => {
 
 	return (
 		<PageAnimation>
-			<div className="grid h-full grid-cols-1 gap-16 lg:gap-32 md:grid-cols-2">
+			<div className="grid grid-cols-1 gap-16 lg:h-full lg:gap-32 md:grid-cols-2">
 				<div className="flex flex-col gap-10 lg:justify-between">
 					<Title name={heading?.name} subtitle={heading?.subtitle} />
 					<Navigator />
 				</div>
 
-				<div className="-my-10 overflow-y-scroll scrollbar lg:py-52">
+				<div className="overflow-y-scroll lg:-my-10 scrollbar lg:pt-40 lg:pb-20">
 					<figure className="relative mx-auto mb-10 bg-primary-500/80 w-80 h-80">
 						<AboutImage
 							src={about.image.url}

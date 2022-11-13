@@ -7,7 +7,7 @@ const Navigator = () => {
 	const pathname = usePathname();
 
 	return (
-		<nav className="flex justify-center gap-4 lg:flex-col lg:w-fit">
+		<nav className="flex gap-5 lg:gap-3 lg:flex-col lg:w-fit">
 			<Link
 				href="/about"
 				className={`text-3xl lg:text-7xl hover:opacity-80 ${

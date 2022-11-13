@@ -15,7 +15,7 @@ const Contact = async () => {
 
 	return (
 		<PageAnimation>
-			<div className="grid h-full grid-cols-1 gap-16 lg:gap-32 md:grid-cols-2">
+			<div className="grid grid-cols-1 gap-16 lg:h-full lg:gap-32 md:grid-cols-2">
 				<div className="flex flex-col gap-10 lg:justify-between">
 					<Title name={heading?.name} subtitle={heading?.subtitle} />
 					<Navigator />
