@@ -1,6 +1,6 @@
 import tw from 'tailwind-styled-components';
 
-export const MixedCircle = tw.div`
+export const MixedCircle = tw.div<any>`
   absolute 
   w-52
   lg:w-96

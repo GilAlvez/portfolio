@@ -12,7 +12,7 @@ const Page = async () => {
 
 	return (
 		<PageAnimation>
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-32 h-full">
+			<div className="grid h-full grid-cols-1 gap-32 md:grid-cols-2">
 				<div className="flex flex-col justify-between">
 					<Title name={owner?.name} subtitle={owner?.subtitle} />
 					<Navigator />
