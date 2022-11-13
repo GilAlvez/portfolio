@@ -16,14 +16,14 @@ const About = async () => {
 
 	return (
 		<PageAnimation>
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-32 h-full">
-				<div className="flex flex-col justify-between">
+			<div className="grid h-full grid-cols-1 gap-16 lg:gap-32 md:grid-cols-2">
+				<div className="flex flex-col gap-10 lg:justify-between">
 					<Title name={heading?.name} subtitle={heading?.subtitle} />
 					<Navigator />
 				</div>
 
-				<div className="overflow-y-scroll scrollbar lg:py-52 -my-10">
-					<figure className="bg-primary-500/80 relative mx-auto mb-10 w-80 h-80">
+				<div className="-my-10 overflow-y-scroll scrollbar lg:py-52">
+					<figure className="relative mx-auto mb-10 bg-primary-500/80 w-80 h-80">
 						<AboutImage
 							src={about.image.url}
 							alt="Gildson Foto"
@@ -33,7 +33,7 @@ const About = async () => {
 						/>
 					</figure>
 					<div
-						className="rich-text flex flex-col items-center gap-4"
+						className="flex flex-col items-center gap-4 rich-text"
 						dangerouslySetInnerHTML={{ __html: sanitizeHtml(about.description.html) }}
 					/>
 				</div>
