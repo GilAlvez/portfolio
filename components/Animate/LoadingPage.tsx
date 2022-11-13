@@ -6,13 +6,13 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 const LoadingPage = () => {
 	return (
 		<motion.div
-			className="-m-10 h-screen grid place-items-center dark:bg-black/80"
+			className="grid h-screen -m-10 place-items-center dark:bg-black/80"
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 			transition={{ duration: 1 }}
 		>
-			<AiOutlineLoading3Quarters className="animate-spin text-3xl" />
+			<AiOutlineLoading3Quarters className="text-3xl animate-spin" />
 		</motion.div>
 	);
 };
