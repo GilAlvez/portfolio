@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import { BsArrowUpRight } from 'react-icons/bs';
+import { BsArrowLeft, BsArrowUpRight } from 'react-icons/bs';
 import { client } from '../../../libs/graphql/client';
 import { getWorkBySlug, getWorksSlugs } from '../../../libs/graphql/queries/work';
 
+import Link from 'next/link';
 import sanitizeHtml from 'sanitize-html';
 import PageAnimation from '../../../components/Animate/PageAnimation';
 import SubtitlesTable from '../../../components/SubtitlesTable';
@@ -25,6 +26,10 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 				/>
 			</figure>
 			<div className="container flex flex-col gap-8 py-8 mx-auto lg:px-32 2xl:px-52">
+				<Link href="/work" className="flex items-center p-1 -mb-2 text-2xl w-fit">
+					<BsArrowLeft />
+					<p className="px-2 text-base leading-none">Voltar</p>
+				</Link>
 				<h1>{work?.title}</h1>
 				<hr />
 				<section className="grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -65,7 +70,6 @@ export default WorkBySlug;
 
 export async function generateStaticParams() {
 	const { works } = await client.request(getWorksSlugs);
-
 	return works.map((work) => ({
 		slug: work.slug,
 	}));
