@@ -23,22 +23,18 @@ const WorkList = ({ works }: WorkCardProps) => {
 	);
 
 	const container = {
-		hidden: { opacity: 1 },
+		hidden: {},
 		visible: {
-			opacity: 1,
 			transition: {
 				delayChildren: 0.3,
-				staggerChildren: 0.4,
+				staggerChildren: 0.3,
 			},
 		},
 	};
 
 	const item = {
 		hidden: { y: 50, opacity: 0 },
-		visible: {
-			y: 0,
-			opacity: 1,
-		},
+		visible: { y: 0, opacity: 1 },
 	};
 
 	return (
@@ -46,12 +42,12 @@ const WorkList = ({ works }: WorkCardProps) => {
 			variants={container}
 			initial="hidden"
 			animate="visible"
-			className="flex flex-col overflow-y-scroll scrollbar -my-10 py-52"
+			className="flex flex-col -my-10 overflow-y-scroll scrollbar py-52"
 		>
 			{works.map(({ release, resume, slug, techs, title, type }) => (
 				<motion.div
 					key={slug}
-					className="cursor-pointer pb-8"
+					className="pb-8 cursor-pointer"
 					variants={item}
 					onMouseEnter={() => setIsHovered((state: any) => ({ ...state, [slug]: true }))}
 					onMouseLeave={() => setIsHovered((state: any) => ({ ...state, [slug]: false }))}
@@ -79,10 +75,10 @@ const WorkList = ({ works }: WorkCardProps) => {
 									exit={{ opacity: 0, height: 0, paddingTop: 0, paddingBottom: 0 }}
 									transition={{ duration: 0.75 }}
 								>
-									<p className="line-clamp-2 mb-2">{resume}</p>
+									<p className="mb-2 line-clamp-2">{resume}</p>
 									<div className="flex flex-wrap gap-3">
 										{techs.map((tech) => (
-											<span key={tech} className="bg-zinc-400/30 px-2">
+											<span key={tech} className="px-2 bg-zinc-400/30">
 												{tech}
 											</span>
 										))}
