@@ -42,7 +42,7 @@ const WorkList = ({ works }: WorkCardProps) => {
 			variants={container}
 			initial="hidden"
 			animate="visible"
-			className="flex flex-col -my-10 overflow-y-scroll scrollbar py-52"
+			className="flex flex-col overflow-y-scroll scrollbar lg:-my-10 lg:pt-40 lg:pb-20"
 		>
 			{works.map(({ release, resume, slug, techs, title, type }) => (
 				<motion.div

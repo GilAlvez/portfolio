@@ -11,7 +11,7 @@ const Title = ({ name, subtitle }: TitleProps) => {
 			<Link href="/">
 				<h1 className="font-medium">{name}</h1>
 			</Link>
-			<h2 className="transition duration-300 text-zinc-900/60 dark:text-zinc-200/60 font-light">
+			<h2 className="transition duration-300 font-extralight text-zinc-900/60 dark:text-zinc-200/60">
 				{subtitle}
 			</h2>
 		</div>
