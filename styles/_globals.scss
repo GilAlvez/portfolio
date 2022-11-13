@@ -26,16 +26,10 @@ body {
 		selection:bg-primary-300 selection:text-zinc-800
 		dark:selection:bg-zinc-800 dark:selection:text-primary-400;
 	}
-	a {
-		@apply cursor-pointer;
-	}
-	[data-nextjs-scroll-focus-boundary] {
-		@apply contents;
-	}
 
 	/* TYPOGRAPHY */
 	h1 {
-		@apply text-8xl font-normal;
+		@apply text-6xl lg:text-8xl font-normal;
 	}
 	h2 {
 		@apply text-4xl font-normal;
@@ -55,6 +49,17 @@ body {
 	b,
 	strong {
 		@apply font-medium;
+	}
+
+	/* OTHER ELEMENTS */
+	a {
+		@apply cursor-pointer;
+	}
+	hr {
+		@apply border-zinc-300 dark:border-zinc-700;
+	}
+	[data-nextjs-scroll-focus-boundary] {
+		@apply contents;
 	}
 
 	/* UTILITIES */
