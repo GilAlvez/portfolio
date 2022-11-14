@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { MixedCircle } from './styles';
 
-const BackgroundAnimation = () => {
+const Elements = () => {
 	const MotionMixedCircle = motion(MixedCircle);
 	return (
 		<div className="relative opacity-40 dark:opacity-95">
@@ -29,4 +29,4 @@ const BackgroundAnimation = () => {
 	);
 };
 
-export default BackgroundAnimation;
+export default Elements;

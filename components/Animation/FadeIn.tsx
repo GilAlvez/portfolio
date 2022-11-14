@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-const PageAnimation = ({ children }: { children: React.ReactNode }) => {
+const FadeIn = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<motion.div
 			className="h-full"
@@ -16,4 +16,4 @@ const PageAnimation = ({ children }: { children: React.ReactNode }) => {
 	);
 };
 
-export default PageAnimation;
+export default FadeIn;

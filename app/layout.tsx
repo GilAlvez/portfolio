@@ -1,5 +1,5 @@
 import { Exo } from '@next/font/google';
-import BackgroundAnimation from '../components/BackgroundAnimation';
+import Elements from '../components/Animation/Elements';
 import NoiseFilter from '../components/NoiseFilter';
 import ToggleTheme from '../components/ToggleTheme';
 import '../styles/index.scss';
@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<div className="flex justify-end h-10">
 						<ToggleTheme />
 					</div>
-					<BackgroundAnimation />
+					<Elements />
 					<main className="h-full backdrop-blur-3xl lg:backdrop-blur-[80px] backdrop-brightness-[1.15] dark:backdrop-brightness-50 scrollbar overflow-y-scroll border rounded-md p-10 border-zinc-500/50">
 						{/* <AnimatePresence mode="wait">{children}</AnimatePresence> */}
 						{children}

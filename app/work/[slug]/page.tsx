@@ -5,7 +5,7 @@ import { getWorkBySlug, getWorksSlugs } from '../../../libs/graphql/queries/work
 
 import Link from 'next/link';
 import sanitizeHtml from 'sanitize-html';
-import PageAnimation from '../../../components/Animate/PageAnimation';
+import FadeIn from '../../../components/Animation/FadeIn';
 import SubtitlesTable from '../../../components/SubtitlesTable';
 
 export const dynamicParams = false;
@@ -15,7 +15,7 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 	const { work } = await client.request(getWorkBySlug, { slug });
 
 	return (
-		<PageAnimation>
+		<FadeIn>
 			<figure className="relative h-40 -mx-10 -mt-10 select-none">
 				<Image
 					src={work?.banner.url as string}
@@ -62,7 +62,7 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 				/>
 				<span className="text-end">{new Date(work?.updatedAt).toLocaleString()}</span>
 			</div>
-		</PageAnimation>
+		</FadeIn>
 	);
 };
 
