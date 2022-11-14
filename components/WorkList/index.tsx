@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface WorkCardProps {
 	works: {
@@ -16,11 +16,16 @@ interface WorkCardProps {
 }
 
 const WorkList = ({ works }: WorkCardProps) => {
+	const [isMobile, setIsMobile] = useState<boolean>();
 	const [isHovered, setIsHovered] = useState<any>((state: any) =>
 		works.map(({ slug }) => {
 			return { ...state, [slug]: false };
 		})
 	);
+
+	useEffect(() => {
+		window.innerWidth < 1024 ? setIsMobile(true) : setIsMobile(false);
+	}, []);
 
 	const container = {
 		hidden: {},
@@ -31,7 +36,6 @@ const WorkList = ({ works }: WorkCardProps) => {
 			},
 		},
 	};
-
 	const item = {
 		hidden: { y: 50, opacity: 0 },
 		visible: { y: 0, opacity: 1 },
@@ -47,7 +51,7 @@ const WorkList = ({ works }: WorkCardProps) => {
 			{works.map(({ release, resume, slug, techs, title, type }) => (
 				<motion.div
 					key={slug}
-					className="pb-8 cursor-pointer"
+					className="cursor-pointer lg:pb-8"
 					variants={item}
 					onMouseEnter={() => setIsHovered((state: any) => ({ ...state, [slug]: true }))}
 					onMouseLeave={() => setIsHovered((state: any) => ({ ...state, [slug]: false }))}
@@ -58,7 +62,7 @@ const WorkList = ({ works }: WorkCardProps) => {
 							<h2>{title}</h2>
 						</div>
 						<AnimatePresence>
-							{isHovered[slug] && (
+							{(isMobile || isHovered[slug]) && (
 								<motion.hr
 									key={slug + 1}
 									initial={{ width: 0, marginTop: 0 }}
@@ -67,11 +71,16 @@ const WorkList = ({ works }: WorkCardProps) => {
 									transition={{ duration: 0.75 }}
 								/>
 							)}
-							{isHovered[slug] && (
+							{(isMobile || isHovered[slug]) && (
 								<motion.div
 									key={slug + 2}
 									initial={{ opacity: 0, height: 0, paddingTop: 0, paddingBottom: 0 }}
-									animate={{ opacity: 1, height: 100, paddingTop: '0.75rem', paddingBottom: '0.75rem' }}
+									animate={{
+										opacity: 1,
+										height: isMobile ? 90 : 100,
+										paddingTop: '0.75rem',
+										paddingBottom: '0.75rem',
+									}}
 									exit={{ opacity: 0, height: 0, paddingTop: 0, paddingBottom: 0 }}
 									transition={{ duration: 0.75 }}
 								>
