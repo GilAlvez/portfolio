@@ -71,7 +71,7 @@ const WorkList = ({ works }: WorkCardProps) => {
 								<motion.div
 									key={slug + 2}
 									initial={{ opacity: 0, height: 0, paddingTop: 0, paddingBottom: 0 }}
-									animate={{ opacity: 1, height: 100, paddingTop: '1.25rem', paddingBottom: '1.25rem' }}
+									animate={{ opacity: 1, height: 100, paddingTop: '0.75rem', paddingBottom: '0.75rem' }}
 									exit={{ opacity: 0, height: 0, paddingTop: 0, paddingBottom: 0 }}
 									transition={{ duration: 0.75 }}
 								>
