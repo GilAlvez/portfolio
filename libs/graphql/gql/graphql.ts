@@ -4834,9 +4834,9 @@ export type Work = Node & {
   slug: Scalars['String'];
   /** System stage field */
   stage: Stage;
+  tags: Array<Scalars['Json']>;
   techs: Array<Scalars['String']>;
   title: Scalars['String'];
-  type: Scalars['String'];
   /** The time the document was updated */
   updatedAt: Scalars['DateTime'];
   /** User that last updated this document */
@@ -4927,9 +4927,9 @@ export type WorkCreateInput = {
   resume: Scalars['String'];
   seo: SeoCreateOneInlineInput;
   slug: Scalars['String'];
+  tags?: InputMaybe<Array<Scalars['Json']>>;
   techs: Array<Scalars['String']>;
   title: Scalars['String'];
-  type: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
@@ -5144,25 +5144,6 @@ export type WorkManyWhereInput = {
   title_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   title_starts_with?: InputMaybe<Scalars['String']>;
-  type?: InputMaybe<Scalars['String']>;
-  /** All values containing the given string. */
-  type_contains?: InputMaybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  type_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  type_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
-  type_not?: InputMaybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  type_not_contains?: InputMaybe<Scalars['String']>;
-  /** All values not ending with the given string */
-  type_not_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are not contained in given list. */
-  type_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  /** All values not starting with the given string. */
-  type_not_starts_with?: InputMaybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  type_starts_with?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -5204,8 +5185,6 @@ export enum WorkOrderByInput {
   TechsDesc = 'techs_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
-  TypeAsc = 'type_ASC',
-  TypeDesc = 'type_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
   UpdatedAtDesc = 'updatedAt_DESC'
 }
@@ -5221,9 +5200,9 @@ export type WorkUpdateInput = {
   resume?: InputMaybe<Scalars['String']>;
   seo?: InputMaybe<SeoUpdateOneInlineInput>;
   slug?: InputMaybe<Scalars['String']>;
+  tags?: InputMaybe<Array<Scalars['Json']>>;
   techs?: InputMaybe<Array<Scalars['String']>>;
   title?: InputMaybe<Scalars['String']>;
-  type?: InputMaybe<Scalars['String']>;
 };
 
 export type WorkUpdateManyInlineInput = {
@@ -5248,8 +5227,8 @@ export type WorkUpdateManyInput = {
   content?: InputMaybe<Scalars['RichTextAST']>;
   release?: InputMaybe<Scalars['String']>;
   responsibilities?: InputMaybe<Array<Scalars['String']>>;
+  tags?: InputMaybe<Array<Scalars['Json']>>;
   techs?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Scalars['String']>;
 };
 
 export type WorkUpdateManyWithNestedWhereInput = {
@@ -5489,25 +5468,6 @@ export type WorkWhereInput = {
   title_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   title_starts_with?: InputMaybe<Scalars['String']>;
-  type?: InputMaybe<Scalars['String']>;
-  /** All values containing the given string. */
-  type_contains?: InputMaybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  type_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  type_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
-  type_not?: InputMaybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  type_not_contains?: InputMaybe<Scalars['String']>;
-  /** All values not ending with the given string */
-  type_not_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are not contained in given list. */
-  type_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  /** All values not starting with the given string. */
-  type_not_starts_with?: InputMaybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  type_starts_with?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -5646,7 +5606,7 @@ export type OwnerAboutQuery = { __typename?: 'Query', owners: Array<{ __typename
 export type OwnerWorksQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OwnerWorksQuery = { __typename?: 'Query', owners: Array<{ __typename?: 'Owner', works: Array<{ __typename?: 'Work', slug: string, release: string, type: string, title: string, resume: string, techs: Array<string> }> }> };
+export type OwnerWorksQuery = { __typename?: 'Query', owners: Array<{ __typename?: 'Owner', works: Array<{ __typename?: 'Work', active: boolean, slug: string, release: string, title: string, resume: string, techs: Array<string>, tags: Array<any> }> }> };
 
 export type OwnerContactQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5676,7 +5636,7 @@ export type WorkQuery = { __typename?: 'Query', work?: { __typename?: 'Work', ac
 export const OwnerSeoDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"OwnerSEO"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owners"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"keywords"}},{"kind":"Field","name":{"kind":"Name","value":"lang"}},{"kind":"Field","name":{"kind":"Name","value":"favicon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<OwnerSeoQuery, OwnerSeoQueryVariables>;
 export const OwnerHeadingDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"OwnerHeading"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owners"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}}]}}]}}]} as unknown as DocumentNode<OwnerHeadingQuery, OwnerHeadingQueryVariables>;
 export const OwnerAboutDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"OwnerAbout"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owners"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}}]}}]} as unknown as DocumentNode<OwnerAboutQuery, OwnerAboutQueryVariables>;
-export const OwnerWorksDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"OwnerWorks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owners"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"works"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Work"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"release"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"resume"}},{"kind":"Field","name":{"kind":"Name","value":"techs"}}]}}]}}]}}]}}]} as unknown as DocumentNode<OwnerWorksQuery, OwnerWorksQueryVariables>;
+export const OwnerWorksDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"OwnerWorks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owners"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"works"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Work"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"active"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"release"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"resume"}},{"kind":"Field","name":{"kind":"Name","value":"techs"}},{"kind":"Field","name":{"kind":"Name","value":"tags"}}]}}]}}]}}]}}]} as unknown as DocumentNode<OwnerWorksQuery, OwnerWorksQueryVariables>;
 export const OwnerContactDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"OwnerContact"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owners"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"social"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"facebook"}},{"kind":"Field","name":{"kind":"Name","value":"github"}},{"kind":"Field","name":{"kind":"Name","value":"instagram"}},{"kind":"Field","name":{"kind":"Name","value":"linkedin"}},{"kind":"Field","name":{"kind":"Name","value":"whatsapp"}}]}}]}}]}}]} as unknown as DocumentNode<OwnerContactQuery, OwnerContactQueryVariables>;
 export const WorkSlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"WorkSlug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"works"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}}]} as unknown as DocumentNode<WorkSlugQuery, WorkSlugQueryVariables>;
 export const WorkSeoDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"WorkSEO"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"work"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"keywords"}}]}}]}}]}}]} as unknown as DocumentNode<WorkSeoQuery, WorkSeoQueryVariables>;
