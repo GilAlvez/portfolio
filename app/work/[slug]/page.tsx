@@ -26,9 +26,12 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 				/>
 			</figure>
 			<div className="container flex flex-col gap-8 py-8 mx-auto lg:px-32 2xl:px-52">
-				<Link href="/work" className="flex items-center p-1 -mb-2 text-2xl w-fit">
+				<Link
+					href="/work"
+					className="flex items-center px-3 py-1 -mb-2 text-lg border rounded-md dark:border-zinc-600/50 w-fit hover:bg-zinc-200/50 dark:hover:bg-zinc-600/50"
+				>
 					<BsArrowLeft />
-					<p className="px-2 text-base leading-none">Voltar</p>
+					<span className="pl-2 text-base">voltar</span>
 				</Link>
 				<h1 className="text-6xl lg:text-8xl">{work?.title}</h1>
 				<hr />
