@@ -30,7 +30,7 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 					<BsArrowLeft />
 					<p className="px-2 text-base leading-none">Voltar</p>
 				</Link>
-				<h1>{work?.title}</h1>
+				<h1 className="text-6xl lg:text-8xl">{work?.title}</h1>
 				<hr />
 				<section className="grid grid-cols-1 gap-8 lg:grid-cols-2">
 					<SubtitlesTable
