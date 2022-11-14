@@ -1,17 +1,22 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Chip from '../Chip';
+import ConditionalLink from '../ConditionalLink';
 
 interface WorkCardProps {
 	works: {
 		slug: string;
 		release: string;
-		type: string;
+		active: boolean;
 		title: string;
 		resume: string;
 		techs: string[];
+		tags: {
+			name: string;
+			color: 'primary' | 'secondary' | 'green' | 'blue' | 'yellow';
+		}[];
 	}[];
 }
 
@@ -48,17 +53,27 @@ const WorkList = ({ works }: WorkCardProps) => {
 			animate="visible"
 			className="flex flex-col overflow-y-scroll scrollbar lg:-my-10 lg:pt-40 lg:pb-20"
 		>
-			{works.map(({ release, resume, slug, techs, title, type }) => (
+			{works.map(({ release, resume, slug, techs, title, active, tags }) => (
 				<motion.div
 					key={slug}
-					className="cursor-pointer lg:pb-8"
+					className="select-none lg:pb-8"
 					variants={item}
 					onMouseEnter={() => setIsHovered((state: any) => ({ ...state, [slug]: true }))}
 					onMouseLeave={() => setIsHovered((state: any) => ({ ...state, [slug]: false }))}
 				>
-					<Link href={`/work/${slug}`}>
+					<ConditionalLink condition={active} href={`/work/${slug}`}>
 						<div>
-							<h6>{`${release} / ${type}`} </h6>
+							<h6 className="flex items-center gap-2">
+								{release}
+
+								{!active && <Chip color="primary">Em breve</Chip>}
+
+								{tags.map(({ color, name }) => (
+									<Chip key={name} color={color}>
+										{name}
+									</Chip>
+								))}
+							</h6>
 							<h2>{title}</h2>
 						</div>
 						<AnimatePresence>
@@ -95,7 +110,7 @@ const WorkList = ({ works }: WorkCardProps) => {
 								</motion.div>
 							)}
 						</AnimatePresence>
-					</Link>
+					</ConditionalLink>
 				</motion.div>
 			))}
 		</motion.section>
