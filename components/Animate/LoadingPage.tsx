@@ -6,7 +6,7 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 const LoadingPage = () => {
 	return (
 		<motion.div
-			className="grid h-screen -m-10 place-items-center dark:bg-black/80"
+			className="grid h-[calc(100vh_-_4.75rem)] -m-10 place-items-center dark:bg-black/80"
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}

@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<>
 			<html className={`${font.className} dark`}>
-				<body className="flex flex-col justify-start min-h-full px-9">
+				<body className="flex flex-col justify-start h-screen px-9">
 					<div className="flex justify-end h-10">
 						<ToggleTheme />
 					</div>
@@ -21,8 +21,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						{/* <AnimatePresence mode="wait">{children}</AnimatePresence> */}
 						{children}
 					</main>
-					<footer className="py-2 mt-auto text-sm font-normal text-center select-none opacity-90">
-						Designed and coded by Gildson Alves © 2022 (W.I.P.)
+					<footer className="py-2 mt-auto text-sm font-normal text-center select-none dark:opacity-80">
+						Designed and coded by Gil Alves © 2022
 					</footer>
 					<NoiseFilter />
 				</body>
