@@ -1,7 +1,7 @@
 import Navigator from '../components/Navigator';
 import Title from '../components/Title';
 
-import PageAnimation from '../components/Animate/PageAnimation';
+import FadeIn from '../components/Animation/FadeIn';
 import { client } from '../libs/graphql/client';
 import { getOwnerHeading } from '../libs/graphql/queries/owner';
 
@@ -11,14 +11,14 @@ const Page = async () => {
 	} = await client.request(getOwnerHeading);
 
 	return (
-		<PageAnimation>
-			<div className="grid grid-cols-1 gap-14 lg:h-full lg:gap-32 md:grid-cols-2">
-				<div className="flex flex-col gap-14 lg:justify-between">
+		<FadeIn>
+			<div className="grid grid-cols-1 gap-10 lg:h-full lg:gap-32 md:grid-cols-2">
+				<div className="flex flex-col gap-10 lg:h-full lg:justify-between">
 					<Title name={owner?.name} subtitle={owner?.subtitle} />
 					<Navigator />
 				</div>
 			</div>
-		</PageAnimation>
+		</FadeIn>
 	);
 };
 

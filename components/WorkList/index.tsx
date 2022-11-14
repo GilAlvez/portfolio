@@ -1,26 +1,36 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Chip from '../Chip';
+import ConditionalLink from '../ConditionalLink';
 
 interface WorkCardProps {
 	works: {
 		slug: string;
 		release: string;
-		type: string;
+		active: boolean;
 		title: string;
 		resume: string;
 		techs: string[];
+		tags: {
+			name: string;
+			color: 'primary' | 'secondary' | 'green' | 'blue' | 'yellow';
+		}[];
 	}[];
 }
 
 const WorkList = ({ works }: WorkCardProps) => {
+	const [isMobile, setIsMobile] = useState<boolean>();
 	const [isHovered, setIsHovered] = useState<any>((state: any) =>
 		works.map(({ slug }) => {
 			return { ...state, [slug]: false };
 		})
 	);
+
+	useEffect(() => {
+		window.innerWidth < 1024 ? setIsMobile(true) : setIsMobile(false);
+	}, []);
 
 	const container = {
 		hidden: {},
@@ -31,7 +41,6 @@ const WorkList = ({ works }: WorkCardProps) => {
 			},
 		},
 	};
-
 	const item = {
 		hidden: { y: 50, opacity: 0 },
 		visible: { y: 0, opacity: 1 },
@@ -44,21 +53,31 @@ const WorkList = ({ works }: WorkCardProps) => {
 			animate="visible"
 			className="flex flex-col overflow-y-scroll scrollbar lg:-my-10 lg:pt-40 lg:pb-20"
 		>
-			{works.map(({ release, resume, slug, techs, title, type }) => (
+			{works.map(({ release, resume, slug, techs, title, active, tags }) => (
 				<motion.div
 					key={slug}
-					className="pb-8 cursor-pointer"
+					className="select-none lg:pb-8"
 					variants={item}
 					onMouseEnter={() => setIsHovered((state: any) => ({ ...state, [slug]: true }))}
 					onMouseLeave={() => setIsHovered((state: any) => ({ ...state, [slug]: false }))}
 				>
-					<Link href={`/work/${slug}`}>
+					<ConditionalLink condition={active} href={`/work/${slug}`}>
 						<div>
-							<h6>{`${release} / ${type}`} </h6>
+							<h6 className="flex items-center gap-2">
+								{release}
+
+								{!active && <Chip color="primary">Em breve</Chip>}
+
+								{tags.map(({ color, name }) => (
+									<Chip key={name} color={color}>
+										{name}
+									</Chip>
+								))}
+							</h6>
 							<h2>{title}</h2>
 						</div>
 						<AnimatePresence>
-							{isHovered[slug] && (
+							{(isMobile || isHovered[slug]) && (
 								<motion.hr
 									key={slug + 1}
 									initial={{ width: 0, marginTop: 0 }}
@@ -67,11 +86,16 @@ const WorkList = ({ works }: WorkCardProps) => {
 									transition={{ duration: 0.75 }}
 								/>
 							)}
-							{isHovered[slug] && (
+							{(isMobile || isHovered[slug]) && (
 								<motion.div
 									key={slug + 2}
 									initial={{ opacity: 0, height: 0, paddingTop: 0, paddingBottom: 0 }}
-									animate={{ opacity: 1, height: 100, paddingTop: '1.25rem', paddingBottom: '1.25rem' }}
+									animate={{
+										opacity: 1,
+										height: isMobile ? 90 : 100,
+										paddingTop: '0.75rem',
+										paddingBottom: '0.75rem',
+									}}
 									exit={{ opacity: 0, height: 0, paddingTop: 0, paddingBottom: 0 }}
 									transition={{ duration: 0.75 }}
 								>
@@ -86,7 +110,7 @@ const WorkList = ({ works }: WorkCardProps) => {
 								</motion.div>
 							)}
 						</AnimatePresence>
-					</Link>
+					</ConditionalLink>
 				</motion.div>
 			))}
 		</motion.section>

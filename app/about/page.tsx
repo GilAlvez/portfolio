@@ -1,5 +1,5 @@
 import sanitizeHtml from 'sanitize-html';
-import PageAnimation from '../../components/Animate/PageAnimation';
+import FadeIn from '../../components/Animation/FadeIn';
 import Navigator from '../../components/Navigator';
 import Title from '../../components/Title';
 import { client } from '../../libs/graphql/client';
@@ -15,9 +15,9 @@ const About = async () => {
 	} = await client.request(getOwnerAbout);
 
 	return (
-		<PageAnimation>
-			<div className="grid grid-cols-1 gap-14 lg:h-full lg:gap-32 md:grid-cols-2">
-				<div className="flex flex-col gap-14 lg:justify-between">
+		<FadeIn>
+			<div className="grid grid-cols-1 gap-10 lg:h-full lg:gap-32 md:grid-cols-2">
+				<div className="flex flex-col gap-10 lg:justify-between">
 					<Title name={heading?.name} subtitle={heading?.subtitle} />
 					<Navigator />
 				</div>
@@ -38,7 +38,7 @@ const About = async () => {
 					/>
 				</div>
 			</div>
-		</PageAnimation>
+		</FadeIn>
 	);
 };
 

@@ -44,12 +44,13 @@ export const getOwnerWorks = graphql(`
 		owners {
 			works {
 				... on Work {
+					active
 					slug
 					release
-					type
 					title
 					resume
 					techs
+					tags
 				}
 			}
 		}

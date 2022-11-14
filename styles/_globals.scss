@@ -29,7 +29,7 @@ body {
 
 	/* TYPOGRAPHY */
 	h1 {
-		@apply text-6xl lg:text-8xl font-normal;
+		@apply text-8xl font-normal;
 	}
 	h2 {
 		@apply text-4xl font-normal;
@@ -56,7 +56,7 @@ body {
 		@apply cursor-pointer;
 	}
 	hr {
-		@apply border-zinc-300 dark:border-zinc-700;
+		@apply border-zinc-300 dark:border-zinc-600;
 	}
 	[data-nextjs-scroll-focus-boundary] {
 		@apply contents;

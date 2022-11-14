@@ -5,7 +5,7 @@ import { getWorkBySlug, getWorksSlugs } from '../../../libs/graphql/queries/work
 
 import Link from 'next/link';
 import sanitizeHtml from 'sanitize-html';
-import PageAnimation from '../../../components/Animate/PageAnimation';
+import FadeIn from '../../../components/Animation/FadeIn';
 import SubtitlesTable from '../../../components/SubtitlesTable';
 
 export const dynamicParams = false;
@@ -15,7 +15,7 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 	const { work } = await client.request(getWorkBySlug, { slug });
 
 	return (
-		<PageAnimation>
+		<FadeIn>
 			<figure className="relative h-40 -mx-10 -mt-10 select-none">
 				<Image
 					src={work?.banner.url as string}
@@ -26,11 +26,14 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 				/>
 			</figure>
 			<div className="container flex flex-col gap-8 py-8 mx-auto lg:px-32 2xl:px-52">
-				<Link href="/work" className="flex items-center p-1 -mb-2 text-2xl w-fit">
+				<Link
+					href="/work"
+					className="flex items-center px-3 py-1 -mb-2 text-lg border rounded-md dark:border-zinc-600/50 w-fit hover:bg-zinc-200/50 dark:hover:bg-zinc-600/50"
+				>
 					<BsArrowLeft />
-					<p className="px-2 text-base leading-none">Voltar</p>
+					<span className="pl-2 text-base">voltar</span>
 				</Link>
-				<h1>{work?.title}</h1>
+				<h1 className="text-6xl lg:text-8xl">{work?.title}</h1>
 				<hr />
 				<section className="grid grid-cols-1 gap-8 lg:grid-cols-2">
 					<SubtitlesTable
@@ -62,7 +65,7 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 				/>
 				<span className="text-end">{new Date(work?.updatedAt).toLocaleString()}</span>
 			</div>
-		</PageAnimation>
+		</FadeIn>
 	);
 };
 

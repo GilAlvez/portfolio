@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import { HiEnvelope } from 'react-icons/hi2';
 
@@ -16,10 +17,12 @@ interface ContactListProps {
 }
 
 const ContactList = ({ contact }: ContactListProps) => {
+	const [copied, setCopied] = useState(false);
+
 	const icon = 'p-3 text-6xl rounded-lg bg-zinc-300 dark:bg-primary-500/30';
 	const contacts = [
 		{
-			link: contact.email,
+			email: contact.email,
 			name: 'Email',
 			icon: <HiEnvelope className={icon} />,
 		},
@@ -89,6 +92,24 @@ const ContactList = ({ contact }: ContactListProps) => {
 							</figure>
 						</motion.a>
 					)
+			)}
+			{contacts[0].email && (
+				<motion.div
+					variants={item}
+					onClick={() => {
+						navigator.clipboard.writeText(contacts[0].email as string);
+						setCopied(true);
+						setTimeout(() => {
+							setCopied(false);
+						}, 2500);
+					}}
+					className="transition-colors duration-300 rounded-lg cursor-pointer w-max hover:bg-zinc-200 hover:dark:bg-primary-900/50"
+				>
+					<figure className="flex items-center">
+						{contacts[0].icon}
+						<figcaption className="px-4 text-2xl">{copied ? 'Copiado' : contacts[0].name}</figcaption>
+					</figure>
+				</motion.div>
 			)}
 		</motion.div>
 	);
