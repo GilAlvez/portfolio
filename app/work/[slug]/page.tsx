@@ -72,7 +72,7 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 export default WorkBySlug;
 
 export async function generateStaticParams() {
-	const { works } = await client.request(getWorksSlugs);
+	const { works } = await client.request(getWorksSlugs, { active: true });
 	return works.map((work) => ({
 		slug: work.slug,
 	}));

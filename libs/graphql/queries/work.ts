@@ -1,8 +1,8 @@
 import { graphql } from '../gql';
 
 export const getWorksSlugs = graphql(`
-	query WorkSlug {
-		works {
+	query WorkSlug($active: Boolean!) {
+		works(where: { active: $active }) {
 			slug
 		}
 	}
