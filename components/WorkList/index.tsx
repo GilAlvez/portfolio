@@ -102,9 +102,7 @@ const WorkList = ({ works }: WorkCardProps) => {
 									<p className="mb-2 line-clamp-2">{resume}</p>
 									<div className="flex flex-wrap gap-3">
 										{techs.map((tech) => (
-											<span key={tech} className="px-2 bg-zinc-400/30">
-												{tech}
-											</span>
+											<Chip key={tech}>{tech}</Chip>
 										))}
 									</div>
 								</motion.div>

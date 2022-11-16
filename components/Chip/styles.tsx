@@ -1,10 +1,10 @@
 import tw from 'tailwind-styled-components';
 
 interface ChipStyle {
-	$color: 'primary' | 'secondary' | 'green' | 'blue' | 'yellow';
+	$color?: 'primary' | 'secondary' | 'green' | 'blue' | 'yellow' | 'neutral';
 }
 
-const handleColor = (color: string) => {
+const handleColor = (color?: string) => {
 	switch (color) {
 		case 'primary':
 			return 'bg-primary-200 text-primary-900 dark:bg-primary-900 dark:text-primary-200';
@@ -16,8 +16,10 @@ const handleColor = (color: string) => {
 			return `bg-blue-200 text-blue-900 dark:bg-blue-900 dark:text-blue-200`;
 		case 'yellow':
 			return `bg-amber-200 text-amber-900 dark:bg-amber-900 dark:text-amber-200`;
+		case 'neutral':
+			return `bg-zinc-200 text-zinc-900 dark:bg-zinc-700 dark:text-zinc-300`;
 		default:
-			return `bg-primary-200 text-primary-900 dark:bg-primary-900 dark:text-primary-200`;
+			return `bg-zinc-200 text-zinc-900 dark:bg-zinc-700 dark:text-zinc-300`;
 	}
 };
 
