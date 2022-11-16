@@ -1,8 +1,10 @@
 import { Exo } from '@next/font/google';
+import '../styles/index.scss';
+
+import Analytics from '../components/Analytics';
 import Elements from '../components/Animation/Elements';
 import NoiseFilter from '../components/NoiseFilter';
 import ToggleTheme from '../components/ToggleTheme';
-import '../styles/index.scss';
 
 export const revalidate = 3600;
 
@@ -26,6 +28,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					</footer>
 					<NoiseFilter />
 				</body>
+
+				<Analytics />
 			</html>
 		</>
 	);
