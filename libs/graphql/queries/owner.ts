@@ -8,10 +8,6 @@ export const getOwnerSEO = graphql(`
 				description
 				image
 				keywords
-				lang
-				favicon {
-					url
-				}
 			}
 		}
 	}

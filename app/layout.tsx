@@ -11,7 +11,7 @@ const font = Exo();
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<>
-			<html className={`${font.className} dark`}>
+			<html lang="pt" className={`${font.className} dark`}>
 				<body className="flex flex-col justify-start px-9">
 					<div className="flex justify-end h-10">
 						<ToggleTheme />
