@@ -1,6 +1,6 @@
 import Seo from '../../../components/SEO';
-import { client } from '../../../libs/graphql/client';
-import { getWorkSEO } from '../../../libs/graphql/queries/work';
+import { client } from '../../../services/graphql/client';
+import { getWorkSEO } from '../../../services/graphql/queries/work';
 
 const Head = async ({ params }: { params: { slug: string } }) => {
 	const { slug } = params;

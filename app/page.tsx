@@ -2,8 +2,8 @@ import Navigator from '../components/Navigator';
 import Title from '../components/Title';
 
 import FadeIn from '../components/Animation/FadeIn';
-import { client } from '../libs/graphql/client';
-import { getOwnerHeading } from '../libs/graphql/queries/owner';
+import { client } from '../services/graphql/client';
+import { getOwnerHeading } from '../services/graphql/queries/owner';
 
 const Page = async () => {
 	const {

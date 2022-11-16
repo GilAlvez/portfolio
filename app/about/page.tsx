@@ -2,8 +2,8 @@ import sanitizeHtml from 'sanitize-html';
 import FadeIn from '../../components/Animation/FadeIn';
 import Navigator from '../../components/Navigator';
 import Title from '../../components/Title';
-import { client } from '../../libs/graphql/client';
-import { getOwnerAbout, getOwnerHeading } from '../../libs/graphql/queries/owner';
+import { client } from '../../services/graphql/client';
+import { getOwnerAbout, getOwnerHeading } from '../../services/graphql/queries/owner';
 import { AboutImage } from './styles';
 
 const About = async () => {

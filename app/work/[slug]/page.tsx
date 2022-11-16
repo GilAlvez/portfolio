@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { BsArrowLeft, BsArrowUpRight } from 'react-icons/bs';
-import { client } from '../../../libs/graphql/client';
-import { getWorkBySlug, getWorksSlugs } from '../../../libs/graphql/queries/work';
+import { client } from '../../../services/graphql/client';
+import { getWorkBySlug, getWorksSlugs } from '../../../services/graphql/queries/work';
 
 import Link from 'next/link';
 import sanitizeHtml from 'sanitize-html';

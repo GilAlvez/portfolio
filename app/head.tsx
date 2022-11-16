@@ -1,6 +1,6 @@
 import Seo from '../components/SEO';
-import { client } from '../libs/graphql/client';
-import { getOwnerSEO } from '../libs/graphql/queries/owner';
+import { client } from '../services/graphql/client';
+import { getOwnerSEO } from '../services/graphql/queries/owner';
 
 const Head = async () => {
 	const {
