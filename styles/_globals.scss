@@ -7,11 +7,9 @@ html {
 	font-size: calc(62.5% + (100vw / 300));
 	text-rendering: optimizeLegibility;
 	-webkit-text-size-adjust: 100%;
-	height: -webkit-fill-available;
 }
 body {
 	-webkit-tap-highlight-color: transparent;
-	height: -webkit-fill-available;
 }
 
 @layer base {
@@ -19,8 +17,11 @@ body {
 	* {
 		@apply m-0 p-0 box-border;
 	}
+	html {
+		@apply h-viewport;
+	}
 	body {
-		@apply antialiased min-h-screen transition duration-300 font-light 
+		@apply antialiased h-viewport lg:h-screen transition duration-300 font-light 
 		bg-zinc-200 text-black
 		dark:bg-zinc-900 dark:text-zinc-300 
 		selection:bg-primary-300 selection:text-zinc-800
