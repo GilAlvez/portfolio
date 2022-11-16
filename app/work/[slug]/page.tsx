@@ -16,7 +16,7 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 
 	return (
 		<FadeIn>
-			<figure className="relative h-40 -mx-10 -mt-10 select-none">
+			<figure className="relative -mx-10 -mt-10 select-none h-52">
 				<Image
 					src={work?.banner.url as string}
 					alt="Banner do projeto"
@@ -61,7 +61,11 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 
 				<section
 					className="flex flex-col items-center gap-8 rich-text"
-					dangerouslySetInnerHTML={{ __html: sanitizeHtml(work?.content.html as string) }}
+					dangerouslySetInnerHTML={{
+						__html: sanitizeHtml(work?.content.html as string, {
+							allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
+						}),
+					}}
 				/>
 				<span className="text-end">{new Date(work?.updatedAt).toLocaleString()}</span>
 			</div>

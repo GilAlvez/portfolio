@@ -18,33 +18,34 @@
 		}
 		h6,
 		p,
-		a,
-		ul,
-		ol {
+		a {
 			@apply text-lg;
 		}
 		ul,
 		ol {
-			@apply list-none list-inside;
-		}
-		ul {
-			@apply self-end flex gap-3;
+			@apply flex gap-3 list-none list-inside;
 			li {
-				@apply text-xs px-2 bg-zinc-500/40;
+				@apply px-2 rounded-sm bg-zinc-200 dark:bg-zinc-800;
 			}
 		}
 		p {
-			@apply indent-8 lg:w-4/5 break-words;
+			@apply indent-8 lg:w-5/6 break-words;
 		}
 		a {
 			@apply font-semibold hover:underline hover:underline-offset-2 hover:decoration-primary-500;
 		}
-		img {
-			@apply max-h-[30rem] select-none -mx-24 w-full object-cover;
-		}
 		b,
 		strong {
 			@apply font-medium;
+		}
+		img {
+			@apply max-h-[30rem] select-none w-full object-cover;
+		}
+		pre {
+			@apply rounded-md py-2 px-5 bg-zinc-800 text-secondary-200;
+		}
+		blockquote {
+			@apply border-l-4 border-secondary-500 p-4 bg-zinc-100 dark:bg-zinc-800 lg:w-5/6;
 		}
 	}
 }
