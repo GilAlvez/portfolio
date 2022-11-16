@@ -201,7 +201,6 @@ export type AssetConnection = {
 export type AssetCreateInput = {
   bannerWork?: InputMaybe<WorkCreateManyInlineInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  faviconSeo?: InputMaybe<SeoCreateManyInlineInput>;
   fileName: Scalars['String'];
   handle: Scalars['String'];
   height?: InputMaybe<Scalars['Float']>;
@@ -383,7 +382,6 @@ export type AssetTransformationInput = {
 
 export type AssetUpdateInput = {
   bannerWork?: InputMaybe<WorkUpdateManyInlineInput>;
-  faviconSeo?: InputMaybe<SeoUpdateManyInlineInput>;
   fileName?: InputMaybe<Scalars['String']>;
   handle?: InputMaybe<Scalars['String']>;
   height?: InputMaybe<Scalars['Float']>;
@@ -3882,20 +3880,13 @@ export type ScheduledReleaseWhereUniqueInput = {
 export type Seo = {
   __typename?: 'Seo';
   description: Scalars['String'];
-  favicon?: Maybe<Asset>;
   /** The unique identifier */
   id: Scalars['ID'];
   image: Scalars['String'];
   keywords: Scalars['String'];
-  lang: Array<Scalars['String']>;
   /** System stage field */
   stage: Stage;
   title: Scalars['String'];
-};
-
-
-export type SeoFaviconArgs = {
-  locales?: InputMaybe<Array<Locale>>;
 };
 
 export type SeoConnectInput = {
@@ -3917,10 +3908,8 @@ export type SeoConnection = {
 
 export type SeoCreateInput = {
   description: Scalars['String'];
-  favicon?: InputMaybe<AssetCreateOneInlineInput>;
   image: Scalars['String'];
   keywords: Scalars['String'];
-  lang?: InputMaybe<Array<Scalars['String']>>;
   title: Scalars['String'];
 };
 
@@ -3979,7 +3968,6 @@ export type SeoManyWhereInput = {
   description_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   description_starts_with?: InputMaybe<Scalars['String']>;
-  favicon?: InputMaybe<AssetWhereInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -4037,16 +4025,6 @@ export type SeoManyWhereInput = {
   keywords_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   keywords_starts_with?: InputMaybe<Scalars['String']>;
-  /** Matches if the field array contains *all* items provided to the filter and order does match */
-  lang?: InputMaybe<Array<Scalars['String']>>;
-  /** Matches if the field array contains *all* items provided to the filter */
-  lang_contains_all?: InputMaybe<Array<Scalars['String']>>;
-  /** Matches if the field array does not contain any of the items provided to the filter */
-  lang_contains_none?: InputMaybe<Array<Scalars['String']>>;
-  /** Matches if the field array contains at least one item provided to the filter */
-  lang_contains_some?: InputMaybe<Array<Scalars['String']>>;
-  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
-  lang_not?: InputMaybe<Array<Scalars['String']>>;
   title?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   title_contains?: InputMaybe<Scalars['String']>;
@@ -4077,8 +4055,6 @@ export enum SeoOrderByInput {
   ImageDesc = 'image_DESC',
   KeywordsAsc = 'keywords_ASC',
   KeywordsDesc = 'keywords_DESC',
-  LangAsc = 'lang_ASC',
-  LangDesc = 'lang_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC'
 }
@@ -4173,10 +4149,8 @@ export type SeoParentWhereUniqueInput = {
 
 export type SeoUpdateInput = {
   description?: InputMaybe<Scalars['String']>;
-  favicon?: InputMaybe<AssetUpdateOneInlineInput>;
   image?: InputMaybe<Scalars['String']>;
   keywords?: InputMaybe<Scalars['String']>;
-  lang?: InputMaybe<Array<Scalars['String']>>;
   title?: InputMaybe<Scalars['String']>;
 };
 
@@ -4192,7 +4166,8 @@ export type SeoUpdateManyInlineInput = {
 };
 
 export type SeoUpdateManyInput = {
-  lang?: InputMaybe<Array<Scalars['String']>>;
+  /** No fields in updateMany data input */
+  _?: InputMaybe<Scalars['String']>;
 };
 
 export type SeoUpdateManyWithNestedWhereInput = {
@@ -4281,7 +4256,6 @@ export type SeoWhereInput = {
   description_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   description_starts_with?: InputMaybe<Scalars['String']>;
-  favicon?: InputMaybe<AssetWhereInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -4339,16 +4313,6 @@ export type SeoWhereInput = {
   keywords_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   keywords_starts_with?: InputMaybe<Scalars['String']>;
-  /** Matches if the field array contains *all* items provided to the filter and order does match */
-  lang?: InputMaybe<Array<Scalars['String']>>;
-  /** Matches if the field array contains *all* items provided to the filter */
-  lang_contains_all?: InputMaybe<Array<Scalars['String']>>;
-  /** Matches if the field array does not contain any of the items provided to the filter */
-  lang_contains_none?: InputMaybe<Array<Scalars['String']>>;
-  /** Matches if the field array contains at least one item provided to the filter */
-  lang_contains_some?: InputMaybe<Array<Scalars['String']>>;
-  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
-  lang_not?: InputMaybe<Array<Scalars['String']>>;
   title?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   title_contains?: InputMaybe<Scalars['String']>;
@@ -5591,7 +5555,7 @@ export enum _SystemDateTimeFieldVariation {
 export type OwnerSeoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OwnerSeoQuery = { __typename?: 'Query', owners: Array<{ __typename?: 'Owner', seo: { __typename?: 'Seo', title: string, description: string, image: string, keywords: string, lang: Array<string>, favicon?: { __typename?: 'Asset', url: string } | null } }> };
+export type OwnerSeoQuery = { __typename?: 'Query', owners: Array<{ __typename?: 'Owner', seo: { __typename?: 'Seo', title: string, description: string, image: string, keywords: string } }> };
 
 export type OwnerHeadingQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5613,7 +5577,9 @@ export type OwnerContactQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type OwnerContactQuery = { __typename?: 'Query', owners: Array<{ __typename?: 'Owner', social: { __typename?: 'Contact', email?: string | null, facebook?: string | null, github?: string | null, instagram?: string | null, linkedin?: string | null, whatsapp?: string | null } }> };
 
-export type WorkSlugQueryVariables = Exact<{ [key: string]: never; }>;
+export type WorkSlugQueryVariables = Exact<{
+  active: Scalars['Boolean'];
+}>;
 
 
 export type WorkSlugQuery = { __typename?: 'Query', works: Array<{ __typename?: 'Work', slug: string }> };
@@ -5633,11 +5599,11 @@ export type WorkQueryVariables = Exact<{
 export type WorkQuery = { __typename?: 'Query', work?: { __typename?: 'Work', active: boolean, slug: string, title: string, release: string, responsibilities: Array<string>, techs: Array<string>, resume: string, link?: string | null, updatedAt: any, banner: { __typename?: 'Asset', url: string }, content: { __typename?: 'RichText', html: string }, seo: { __typename?: 'Seo', title: string, description: string, image: string, keywords: string } } | null };
 
 
-export const OwnerSeoDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"OwnerSEO"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owners"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"keywords"}},{"kind":"Field","name":{"kind":"Name","value":"lang"}},{"kind":"Field","name":{"kind":"Name","value":"favicon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<OwnerSeoQuery, OwnerSeoQueryVariables>;
+export const OwnerSeoDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"OwnerSEO"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owners"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"keywords"}}]}}]}}]}}]} as unknown as DocumentNode<OwnerSeoQuery, OwnerSeoQueryVariables>;
 export const OwnerHeadingDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"OwnerHeading"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owners"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}}]}}]}}]} as unknown as DocumentNode<OwnerHeadingQuery, OwnerHeadingQueryVariables>;
 export const OwnerAboutDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"OwnerAbout"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owners"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}}]}}]}}]} as unknown as DocumentNode<OwnerAboutQuery, OwnerAboutQueryVariables>;
 export const OwnerWorksDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"OwnerWorks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owners"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"works"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Work"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"active"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"release"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"resume"}},{"kind":"Field","name":{"kind":"Name","value":"techs"}},{"kind":"Field","name":{"kind":"Name","value":"tags"}}]}}]}}]}}]}}]} as unknown as DocumentNode<OwnerWorksQuery, OwnerWorksQueryVariables>;
 export const OwnerContactDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"OwnerContact"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owners"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"social"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"facebook"}},{"kind":"Field","name":{"kind":"Name","value":"github"}},{"kind":"Field","name":{"kind":"Name","value":"instagram"}},{"kind":"Field","name":{"kind":"Name","value":"linkedin"}},{"kind":"Field","name":{"kind":"Name","value":"whatsapp"}}]}}]}}]}}]} as unknown as DocumentNode<OwnerContactQuery, OwnerContactQueryVariables>;
-export const WorkSlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"WorkSlug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"works"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}}]} as unknown as DocumentNode<WorkSlugQuery, WorkSlugQueryVariables>;
+export const WorkSlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"WorkSlug"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"active"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Boolean"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"works"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"active"},"value":{"kind":"Variable","name":{"kind":"Name","value":"active"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}}]} as unknown as DocumentNode<WorkSlugQuery, WorkSlugQueryVariables>;
 export const WorkSeoDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"WorkSEO"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"work"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"keywords"}}]}}]}}]}}]} as unknown as DocumentNode<WorkSeoQuery, WorkSeoQueryVariables>;
 export const WorkDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Work"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"work"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"active"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"release"}},{"kind":"Field","name":{"kind":"Name","value":"responsibilities"}},{"kind":"Field","name":{"kind":"Name","value":"techs"}},{"kind":"Field","name":{"kind":"Name","value":"resume"}},{"kind":"Field","name":{"kind":"Name","value":"link"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"banner"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"html"}}]}},{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"keywords"}}]}}]}}]}}]} as unknown as DocumentNode<WorkQuery, WorkQueryVariables>;

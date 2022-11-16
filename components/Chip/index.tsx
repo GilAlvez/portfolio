@@ -1,7 +1,7 @@
 import { ChipStyled } from './styles';
 
 interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {
-	color: 'primary' | 'secondary' | 'green' | 'blue' | 'yellow';
+	color?: 'primary' | 'secondary' | 'green' | 'blue' | 'yellow' | 'neutral';
 	children: React.ReactNode;
 }
 

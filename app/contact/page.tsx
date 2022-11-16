@@ -2,8 +2,8 @@ import FadeIn from '../../components/Animation/FadeIn';
 import ContactList from '../../components/ContactList';
 import Navigator from '../../components/Navigator';
 import Title from '../../components/Title';
-import { client } from '../../libs/graphql/client';
-import { getOwnerContact, getOwnerHeading } from '../../libs/graphql/queries/owner';
+import { client } from '../../services/graphql/client';
+import { getOwnerContact, getOwnerHeading } from '../../services/graphql/queries/owner';
 
 const Contact = async () => {
 	const {

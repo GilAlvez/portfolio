@@ -32,6 +32,9 @@ module.exports = {
 					900: '#164e63',
 				},
 			},
+			height: {
+				viewport: ['-webkit-fill-available', '-moz-available', 'stretch', '100%'],
+			},
 		},
 	},
 	plugins: [require('@tailwindcss/line-clamp')],

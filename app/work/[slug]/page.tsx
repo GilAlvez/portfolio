@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { BsArrowLeft, BsArrowUpRight } from 'react-icons/bs';
-import { client } from '../../../libs/graphql/client';
-import { getWorkBySlug, getWorksSlugs } from '../../../libs/graphql/queries/work';
+import { client } from '../../../services/graphql/client';
+import { getWorkBySlug, getWorksSlugs } from '../../../services/graphql/queries/work';
 
 import Link from 'next/link';
 import sanitizeHtml from 'sanitize-html';
@@ -16,7 +16,7 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 
 	return (
 		<FadeIn>
-			<figure className="relative h-40 -mx-10 -mt-10 select-none">
+			<figure className="relative -mx-10 -mt-10 select-none h-52">
 				<Image
 					src={work?.banner.url as string}
 					alt="Banner do projeto"
@@ -61,7 +61,11 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 
 				<section
 					className="flex flex-col items-center gap-8 rich-text"
-					dangerouslySetInnerHTML={{ __html: sanitizeHtml(work?.content.html as string) }}
+					dangerouslySetInnerHTML={{
+						__html: sanitizeHtml(work?.content.html as string, {
+							allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
+						}),
+					}}
 				/>
 				<span className="text-end">{new Date(work?.updatedAt).toLocaleString()}</span>
 			</div>
@@ -72,7 +76,7 @@ const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
 export default WorkBySlug;
 
 export async function generateStaticParams() {
-	const { works } = await client.request(getWorksSlugs);
+	const { works } = await client.request(getWorksSlugs, { active: true });
 	return works.map((work) => ({
 		slug: work.slug,
 	}));
