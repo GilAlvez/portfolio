@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						<ToggleTheme />
 					</div>
 					<Elements />
-					<main className="h-full backdrop-blur-3xl lg:backdrop-blur-[80px] backdrop-brightness-[1.15] dark:backdrop-brightness-50 scrollbar overflow-y-scroll border rounded-md p-10 border-zinc-500/50">
+					<main className="h-full backdrop-blur-3xl lg:backdrop-blur-[120px] backdrop-brightness-[1.15] dark:backdrop-brightness-50 scrollbar overflow-y-scroll border rounded-md p-10 border-zinc-500/50">
 						{/* <AnimatePresence mode="wait">{children}</AnimatePresence> */}
 						{children}
 					</main>

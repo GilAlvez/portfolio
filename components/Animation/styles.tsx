@@ -7,5 +7,5 @@ export const MixedCircle = tw.div<any>`
   aspect-square 
   rounded-full 
   mix-blend-lighten 
-  dark:mix-blend-darken 
+  dark:mix-blend-screen
 `;
