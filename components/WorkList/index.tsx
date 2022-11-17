@@ -94,14 +94,14 @@ const WorkList = ({ works }: WorkCardProps) => {
 										initial={{ opacity: 0, height: 0, paddingTop: 0, paddingBottom: 0 }}
 										animate={{
 											opacity: 1,
-											height: isMobile ? 90 : 100,
+											height: isMobile ? 130 : 100,
 											paddingTop: '0.75rem',
 											paddingBottom: '0.75rem',
 										}}
 										exit={{ opacity: 0, height: 0, paddingTop: 0, paddingBottom: 0 }}
 										transition={{ duration: 0.75 }}
 									>
-										<p className="mb-2 line-clamp-2">{resume}</p>
+										<p className="mb-2 line-clamp-3 lg:line-clamp-2">{resume}</p>
 										<div className="flex flex-wrap gap-3">
 											{techs.map((tech) => (
 												<Chip key={tech}>{tech}</Chip>
