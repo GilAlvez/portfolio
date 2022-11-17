@@ -14,8 +14,10 @@ export const getWorkSEO = graphql(`
 			seo {
 				title
 				description
-				image
 				keywords
+				image {
+					url
+				}
 			}
 		}
 	}
@@ -38,12 +40,6 @@ export const getWorkBySlug = graphql(`
 			}
 			content {
 				html
-			}
-			seo {
-				title
-				description
-				image
-				keywords
 			}
 		}
 	}

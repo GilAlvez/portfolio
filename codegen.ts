@@ -8,9 +8,9 @@ const config: CodegenConfig = {
 			},
 		},
 	},
-	documents: 'libs/graphql/queries/**',
+	documents: 'services/graphql/queries/**',
 	generates: {
-		'./libs/graphql/gql/': {
+		'./services/graphql/gql/': {
 			preset: 'client',
 			plugins: [],
 		},

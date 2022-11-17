@@ -3,7 +3,9 @@ export interface SeoProps {
 		title: string;
 		description: string;
 		keywords: string;
-		image: string;
+		image: {
+			url: string;
+		};
 	};
 }
 
@@ -22,13 +24,13 @@ const Seo = ({ data }: SeoProps) => {
 			<meta property="og:url" content={process.env.NEXT_PUBLIC_URL} />
 			<meta property="og:title" content={data?.title} />
 			<meta property="og:description" content={data?.description} />
-			<meta property="og:image" content={data?.image} />
+			<meta property="og:image" content={data?.image.url} />
 
 			<meta property="twitter:card" content="summary_large_image" />
 			<meta property="twitter:url" content={process.env.NEXT_PUBLIC_URL} />
 			<meta property="twitter:title" content={data?.title} />
 			<meta property="twitter:description" content={data?.description} />
-			<meta property="twitter:image" content={data?.image} />
+			<meta property="twitter:image" content={data?.image.url} />
 
 			<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 			<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

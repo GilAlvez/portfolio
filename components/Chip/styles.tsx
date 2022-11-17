@@ -19,7 +19,7 @@ const handleColor = (color?: string) => {
 		case 'neutral':
 			return `bg-zinc-200 text-zinc-900 dark:bg-zinc-700 dark:text-zinc-300`;
 		default:
-			return `bg-zinc-200 text-zinc-900 dark:bg-zinc-700 dark:text-zinc-300`;
+			return `bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-400`;
 	}
 };
 

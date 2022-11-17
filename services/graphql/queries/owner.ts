@@ -6,8 +6,10 @@ export const getOwnerSEO = graphql(`
 			seo {
 				title
 				description
-				image
 				keywords
+				image {
+					url
+				}
 			}
 		}
 	}
