@@ -6,7 +6,7 @@ import Elements from '../components/Animation/Elements';
 import NoiseFilter from '../components/NoiseFilter';
 import ToggleTheme from '../components/ToggleTheme';
 
-export const revalidate = 3600;
+export const revalidate = 86400; // 24hs
 
 const font = Exo();
 
