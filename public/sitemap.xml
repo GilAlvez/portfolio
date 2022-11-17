@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://gilalves.vercel.app/</loc>
+  <lastmod>2022-11-17T22:17:03+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://gilalves.vercel.app/about</loc>
+  <lastmod>2022-11-17T22:17:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gilalves.vercel.app/work</loc>
+  <lastmod>2022-11-17T22:17:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gilalves.vercel.app/contact</loc>
+  <lastmod>2022-11-17T22:17:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gilalves.vercel.app/work/portfolio</loc>
+  <lastmod>2022-11-17T22:17:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gilalves.vercel.app/work/brasil-consultoria</loc>
+  <lastmod>2022-11-17T22:17:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gilalves.vercel.app/work/cidade-conectada</loc>
+  <lastmod>2022-11-17T22:17:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gilalves.vercel.app/work/complex-form</loc>
+  <lastmod>2022-11-17T22:17:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gilalves.vercel.app/work/cubo-contabil</loc>
+  <lastmod>2022-11-17T22:17:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gilalves.vercel.app/work/fasp-vestibular</loc>
+  <lastmod>2022-11-17T22:17:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
