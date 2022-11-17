@@ -37,6 +37,7 @@ const Seo = ({ data }: SeoProps) => {
 			<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 			<link rel="manifest" href="/site.webmanifest" />
 
+			<meta name="google-site-verification" content="9j2WKjT-2NYohLH3b6ebDbIUD1nBFTVFrahhZQoXTO4" />
 			<meta name="author" content="Gil Alves, github.com/GilAlvez" />
 			<meta name="robots" content="all" />
 		</>
