@@ -1,4 +1,4 @@
-import { Exo } from '@next/font/google';
+import { Exo } from "next/font/google";
 import '../styles/index.scss';
 
 import Analytics from '../components/Analytics';

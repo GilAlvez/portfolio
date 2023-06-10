@@ -12,7 +12,6 @@
 		"codegen": "graphql-codegen --require dotenv/config --config codegen.ts"
 	},
 	"dependencies": {
-		"@next/font": "^13.4.5",
 		"encoding": "^0.1.13",
 		"framer-motion": "^7.6.6",
 		"graphql": "^16.6.0",
