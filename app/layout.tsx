@@ -1,4 +1,4 @@
-import { Exo } from "next/font/google";
+import { Exo } from 'next/font/google';
 import '../styles/index.scss';
 
 import Analytics from '../components/Analytics';
@@ -8,7 +8,7 @@ import ToggleTheme from '../components/ToggleTheme';
 
 export const revalidate = 3600; // 1hr
 
-const font = Exo();
+const font = Exo({ subsets: ['latin'] });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
