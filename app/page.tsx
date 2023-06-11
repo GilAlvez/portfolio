@@ -1,9 +1,19 @@
 import Navigator from '../components/Navigator';
 import Title from '../components/Title';
 
+import { Metadata } from 'next';
 import FadeIn from '../components/Animation/FadeIn';
 import { client } from '../services/graphql/client';
-import { getOwnerHeading } from '../services/graphql/queries/owner';
+import { getOwnerHeading, getOwnerSEO } from '../services/graphql/queries/owner';
+import { generateSEO } from '../utils/generateSEO';
+
+export async function generateMetadata(): Promise<Metadata> {
+	const {
+		owners: [{ seo }],
+	} = await client.request(getOwnerSEO);
+
+	return generateSEO({ seo });
+}
 
 const Page = async () => {
 	const {

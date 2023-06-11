@@ -1,4 +1,4 @@
-import Seo from '../../../components/SEO';
+import Seo from '../../../components/SEO/deprecated';
 import { client } from '../../../services/graphql/client';
 import { getWorkSEO } from '../../../services/graphql/queries/work';
 
