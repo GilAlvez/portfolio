@@ -1,17 +1,28 @@
 import Image from 'next/image';
 import { BsArrowLeft, BsArrowUpRight } from 'react-icons/bs';
 import { client } from '../../../services/graphql/client';
-import { getWorkBySlug, getWorksSlugs } from '../../../services/graphql/queries/work';
+import { getWorkBySlug, getWorkSEO, getWorksSlugs } from '../../../services/graphql/queries/work';
 
+import { Metadata } from 'next';
 import Link from 'next/link';
 import sanitizeHtml from 'sanitize-html';
 import FadeIn from '../../../components/Animation/FadeIn';
 import SubtitlesTable from '../../../components/SubtitlesTable';
+import { generateSEO } from '../../../utils/generateSEO';
 
 export const dynamicParams = false;
 
-const WorkBySlug = async ({ params }: { params: { slug: string } }) => {
-	const { slug } = params;
+type Props = {
+	params: { slug: string };
+};
+
+export async function generateMetadata({ params: { slug } }: Props): Promise<Metadata> {
+	const { work } = await client.request(getWorkSEO, { slug });
+
+	return generateSEO({ seo: work?.seo });
+}
+
+const WorkBySlug = async ({ params: { slug } }: Props) => {
 	const { work } = await client.request(getWorkBySlug, { slug });
 
 	return (
