@@ -4,10 +4,6 @@ const nextConfig = {
 	images: {
 		domains: ['media.graphassets.com'],
 	},
-	experimental: {
-		appDir: true,
-		fontLoaders: [{ loader: '@next/font/google', options: { subsets: ['latin'] } }],
-	},
 };
 
 module.exports = nextConfig;

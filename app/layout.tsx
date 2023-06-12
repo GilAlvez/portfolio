@@ -1,14 +1,26 @@
-import { Exo } from '@next/font/google';
+import { Exo } from 'next/font/google';
 import '../styles/index.scss';
 
+import { Metadata } from 'next';
 import Analytics from '../components/Analytics';
 import Elements from '../components/Animation/Elements';
 import NoiseFilter from '../components/NoiseFilter';
 import ToggleTheme from '../components/ToggleTheme';
+import { client } from '../services/graphql/client';
+import { getOwnerSEO } from '../services/graphql/queries/owner';
+import { generateSEO } from '../utils/generateSEO';
 
 export const revalidate = 3600; // 1hr
 
-const font = Exo();
+const font = Exo({ subsets: ['latin'] });
+
+export async function generateMetadata(): Promise<Metadata> {
+	const {
+		owners: [{ seo }],
+	} = await client.request(getOwnerSEO);
+
+	return generateSEO({ seo });
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
