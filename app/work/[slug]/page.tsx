@@ -78,7 +78,9 @@ const WorkBySlug = async ({ params: { slug } }: Props) => {
 						}),
 					}}
 				/>
-				<span className="text-end">{new Date(work?.updatedAt).toLocaleString()}</span>
+				<span className="text-end">
+					Última atualização: {new Date(work?.updatedAt).toLocaleString().split(',')[0]}
+				</span>
 			</div>
 		</FadeIn>
 	);
