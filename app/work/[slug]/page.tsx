@@ -57,12 +57,12 @@ const WorkBySlug = async ({ params: { slug } }: Props) => {
 						<p>{work?.resume}</p>
 						{work?.link && (
 							<a
-								className="flex items-center gap-2 w-max"
+								className="flex items-center gap-2 text-lg font-semibold border-b w-max border-b-primary-500/50 hover:border-b-primary-500"
 								href={work.link}
 								target="_blank"
 								rel="noreferrer noopener"
 							>
-								<span>Visualizar o site</span>
+								<span>Visitar o site</span>
 								<BsArrowUpRight />
 							</a>
 						)}
