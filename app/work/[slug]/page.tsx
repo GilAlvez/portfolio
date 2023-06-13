@@ -57,12 +57,12 @@ const WorkBySlug = async ({ params: { slug } }: Props) => {
 						<p>{work?.resume}</p>
 						{work?.link && (
 							<a
-								className="flex items-center gap-2 w-max"
+								className="flex items-center gap-2 text-lg font-semibold border-b w-max border-b-primary-500/50 hover:border-b-primary-500"
 								href={work.link}
 								target="_blank"
 								rel="noreferrer noopener"
 							>
-								<span>Visualizar o site</span>
+								<span>Visitar o site</span>
 								<BsArrowUpRight />
 							</a>
 						)}
@@ -71,14 +71,16 @@ const WorkBySlug = async ({ params: { slug } }: Props) => {
 				<hr />
 
 				<section
-					className="flex flex-col items-center gap-8 rich-text"
+					className="rich-text"
 					dangerouslySetInnerHTML={{
 						__html: sanitizeHtml(work?.content.html as string, {
 							allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
 						}),
 					}}
 				/>
-				<span className="text-end">{new Date(work?.updatedAt).toLocaleString()}</span>
+				<span className="text-end">
+					Última atualização: {new Date(work?.updatedAt).toLocaleString().split(',')[0]}
+				</span>
 			</div>
 		</FadeIn>
 	);
