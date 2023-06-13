@@ -71,7 +71,7 @@ const WorkBySlug = async ({ params: { slug } }: Props) => {
 				<hr />
 
 				<section
-					className="flex flex-col items-center gap-8 rich-text"
+					className="rich-text"
 					dangerouslySetInnerHTML={{
 						__html: sanitizeHtml(work?.content.html as string, {
 							allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),

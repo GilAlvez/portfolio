@@ -4,48 +4,29 @@
 
 @layer base {
 	.rich-text {
-		h2 {
-			@apply text-4xl;
-		}
-		h3 {
-			@apply text-3xl;
-		}
-		h4 {
-			@apply text-2xl;
-		}
-		h5 {
-			@apply text-xl;
-		}
-		h6,
-		p,
-		a {
-			@apply text-lg;
-		}
-		ul,
-		ol {
-			@apply flex gap-3 list-none list-inside;
-			li {
-				@apply px-2 rounded-sm bg-zinc-200 dark:bg-zinc-800;
-			}
-		}
-		p {
-			@apply indent-8 lg:w-5/6 break-words;
-		}
-		a {
-			@apply font-semibold hover:underline hover:underline-offset-2 hover:decoration-primary-500;
-		}
-		b,
-		strong {
-			@apply font-medium;
-		}
-		img {
-			@apply max-h-[30rem] select-none w-full object-cover;
-		}
-		pre {
-			@apply rounded-md py-2 px-5 bg-zinc-800 text-secondary-200;
-		}
-		blockquote {
-			@apply border-l-4 border-secondary-500 p-4 bg-zinc-100 dark:bg-zinc-800 lg:w-5/6;
-		}
+		@apply prose 
+		prose-xl
+		dark:prose-invert 
+		
+		mx-auto 
+		my-10 
+
+		prose-headings:text-center 
+		prose-h3:text-4xl 
+		prose-p:indent-8
+		prose-ol:list-disc 
+		prose-img:w-full 
+
+		prose-a:font-semibold 
+		prose-a:underline 
+		prose-a:decoration-primary-500/40 
+		prose-a:underline-offset-2 
+		hover:prose-a:decoration-primary-500;
 	}
+	// pre {
+	// 	@apply rounded-md py-2 px-5 bg-zinc-800 text-secondary-200;
+	// }
+	// blockquote {
+	// 	@apply border-l-4 border-secondary-500 p-4 bg-zinc-100 dark:bg-zinc-800 lg:w-5/6;
+	// }
 }
