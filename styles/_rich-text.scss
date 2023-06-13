@@ -4,13 +4,11 @@
 
 @layer base {
 	.rich-text {
-		@apply prose 
-		prose-xl
+		@apply mx-auto 
+		prose 
+		prose-lg
 		dark:prose-invert 
 		
-		mx-auto 
-		my-10 
-
 		prose-headings:text-center 
 		prose-h3:text-4xl 
 		prose-p:indent-8
