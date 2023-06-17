@@ -73,7 +73,7 @@ const ContactList = ({ contact }: ContactListProps) => {
 			variants={container}
 			initial="hidden"
 			animate="visible"
-			className="flex flex-col justify-center gap-4"
+			className="flex flex-col justify-center h-full gap-4"
 		>
 			{contacts.map(
 				({ link, name, icon }) =>

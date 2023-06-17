@@ -4,10 +4,13 @@ import '../styles/index.scss';
 import { Metadata } from 'next';
 import Analytics from '../components/Analytics';
 import Elements from '../components/Animation/Elements';
+import Navigator from '../components/Navigator';
 import NoiseFilter from '../components/NoiseFilter';
 import ToggleTheme from '../components/ToggleTheme';
+
+import Title from '../components/Title';
 import { client } from '../services/graphql/client';
-import { getOwnerSEO } from '../services/graphql/queries/owner';
+import { getOwnerHeading, getOwnerSEO } from '../services/graphql/queries/owner';
 import { generateSEO } from '../utils/generateSEO';
 
 export const revalidate = 3600; // 1hr
@@ -22,7 +25,11 @@ export async function generateMetadata(): Promise<Metadata> {
 	return generateSEO({ seo });
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+	const {
+		owners: [heading],
+	} = await client.request(getOwnerHeading);
+
 	return (
 		<>
 			<html lang="pt" className={`${font.className} dark`}>
@@ -32,8 +39,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					</div>
 					<Elements />
 					<main className="h-full backdrop-blur-3xl lg:backdrop-blur-[120px] backdrop-brightness-[1.15] dark:backdrop-brightness-50 scrollbar overflow-y-scroll border rounded-md p-10 border-zinc-500/50">
-						{/* <AnimatePresence mode="wait">{children}</AnimatePresence> */}
-						{children}
+						<div className="grid grid-cols-1 gap-10 lg:h-full md:grid-cols-2">
+							<div className="flex flex-col gap-10 lg:justify-between">
+								<Title name={heading?.name} subtitle={heading?.subtitle} />
+								<Navigator />
+							</div>
+							<div className="max-w-2xl overflow-y-scroll scrollbar">{children}</div>
+						</div>
 					</main>
 					<footer className="py-2 mt-auto text-sm font-normal text-center select-none dark:opacity-80">
 						Designed and coded by Gil Alves © 2022
