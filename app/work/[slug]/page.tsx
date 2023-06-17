@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { BsArrowLeft, BsArrowUpRight } from 'react-icons/bs';
 import { client } from '../../../services/graphql/client';
 import { getWorkBySlug, getWorkSEO, getWorksSlugs } from '../../../services/graphql/queries/work';
@@ -27,7 +26,7 @@ const WorkBySlug = async ({ params: { slug } }: Props) => {
 
 	return (
 		<FadeIn>
-			<figure className="relative -mx-10 -mt-10 select-none h-52">
+			{/* <figure className="relative -mx-10 -mt-10 select-none h-52">
 				<Image
 					src={work?.banner.url as string}
 					alt="Banner do projeto"
@@ -35,8 +34,8 @@ const WorkBySlug = async ({ params: { slug } }: Props) => {
 					fill
 					priority
 				/>
-			</figure>
-			<div className="container flex flex-col gap-8 py-8 mx-auto lg:px-32 2xl:px-52">
+			</figure> */}
+			<div className="flex flex-col gap-8 py-8">
 				<Link
 					href="/work"
 					className="flex items-center px-3 py-1 -mb-2 text-lg border rounded-md dark:border-zinc-600/50 w-fit hover:bg-zinc-200/50 dark:hover:bg-zinc-600/50"
@@ -44,7 +43,7 @@ const WorkBySlug = async ({ params: { slug } }: Props) => {
 					<BsArrowLeft />
 					<span className="pl-2 text-base">voltar</span>
 				</Link>
-				<h1 className="text-6xl lg:text-8xl">{work?.title}</h1>
+				<h2 className="text-6xl lg:text-8xl">{work?.title}</h2>
 				<hr />
 				<section className="grid grid-cols-1 gap-8 lg:grid-cols-2">
 					<SubtitlesTable

@@ -38,13 +38,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 						<ToggleTheme />
 					</div>
 					<Elements />
-					<main className="h-full backdrop-blur-3xl lg:backdrop-blur-[120px] backdrop-brightness-[1.15] dark:backdrop-brightness-50 scrollbar overflow-y-scroll border rounded-md p-10 border-zinc-500/50">
-						<div className="grid grid-cols-1 gap-10 lg:h-full md:grid-cols-2">
-							<div className="flex flex-col gap-10 lg:justify-between">
+					<main className="h-full backdrop-blur-3xl lg:backdrop-blur-[120px] backdrop-brightness-[1.15] dark:backdrop-brightness-50 scrollbar overflow-y-scroll border rounded-md  border-zinc-500/50">
+						<div className="grid h-full grid-cols-1 md:grid-cols-2">
+							<div className="flex flex-col gap-10 p-10 lg:justify-between ">
 								<Title name={heading?.name} subtitle={heading?.subtitle} />
 								<Navigator />
 							</div>
-							<div className="max-w-2xl overflow-y-scroll scrollbar">{children}</div>
+							<div className="max-w-3xl p-10 pt-0 overflow-y-scroll scrollbar lg:p-0">{children}</div>
 						</div>
 					</main>
 					<footer className="py-2 mt-auto text-sm font-normal text-center select-none dark:opacity-80">

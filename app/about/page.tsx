@@ -11,7 +11,7 @@ const About = async () => {
 
 	return (
 		<FadeIn>
-			<div className=" lg:-my-10 lg:pt-40 lg:pb-20">
+			<div className=" lg:pt-44 lg:pb-20">
 				<figure className="relative mx-auto mb-10 bg-primary-500/80 w-80 h-80">
 					<AboutImage
 						src={about.image.url}

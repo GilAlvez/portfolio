@@ -51,7 +51,7 @@ const WorkList = ({ works }: WorkCardProps) => {
 			variants={container}
 			initial="hidden"
 			animate="visible"
-			className="flex flex-col lg:-my-10 lg:pt-40 lg:pb-20"
+			className="flex flex-col lg:pt-44 lg:pb-20"
 		>
 			{works
 				.sort((a, b) => +b.active - +a.active)

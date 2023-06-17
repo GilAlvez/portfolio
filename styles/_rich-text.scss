@@ -5,8 +5,7 @@
 @layer base {
 	.rich-text {
 		@apply mx-auto 
-		prose 
-		prose-lg
+		prose
 		dark:prose-invert 
 		
 		prose-headings:text-center 
