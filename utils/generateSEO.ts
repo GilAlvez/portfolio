@@ -34,7 +34,7 @@ export const generateSEO = ({ seo }: SeoProps): Metadata => ({
 
 	manifest: '/site.webmanifest',
 	verification: { google: '9j2WKjT-2NYohLH3b6ebDbIUD1nBFTVFrahhZQoXTO4' },
-	robots: { index: false, follow: true, nocache: true },
+	robots: { index: true, follow: true, nocache: true },
 
 	colorScheme: 'dark',
 	creator: 'Gil Alves',
