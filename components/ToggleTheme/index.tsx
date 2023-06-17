@@ -8,7 +8,11 @@ const ToggleTheme = () => {
 	};
 
 	return (
-		<button className="p-2 text-xl outline-0 hover:bg-zinc-500/40" onClick={handleTheme}>
+		<button
+			className="p-2 text-xl outline-0 hover:bg-zinc-500/40"
+			onClick={handleTheme}
+			aria-label="Mudar Tema"
+		>
 			<RiContrast2Fill />
 		</button>
 	);
