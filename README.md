@@ -8,12 +8,12 @@ Visit here: [Portfolio](https://gilalves.vercel.app/)
 
 ## Technologies
 
-- **Next.js**: Used for server-rendered UI development.
-- **TypeScript**: Employed for static typing within the application.
-- **GraphQL**: Handles API calls to Hygraph.
-- **Hygraph (formerly GraphCMS)**: Utilized for content management via GraphQL.
-- **TailwindCSS**: Applied for styling the application interface.
-- **Framer Motion**: Utilized for providing animation and motion in the UI.
+- **Next.js**: Used for server-rendered UI development
+- **TypeScript**: Employed for static typing within the application
+- **GraphQL**: Handles API calls to Hygraph
+- **Hygraph (formerly GraphCMS)**: Utilized for content management via GraphQL
+- **TailwindCSS**: Applied for styling the application interface
+- **Framer Motion**: Utilized for providing animation and motion in the UI
 
 ## Features
 
@@ -29,7 +29,7 @@ Visit here: [Portfolio](https://gilalves.vercel.app/)
 
 ## Future Improvements
 
-- Release the `Work` internal page, providing full descriptions of projects in markdown format (almost ready)
-- Implement an accessible theme toggle button
-- Update packages to their latest versions
-- Enhance page transition experience
+- Improve the Work internal page by creating a separate, dedicated page
+- Allow the theme to be customized via the API, including aspects such as colors and fonts
+- Enhance accessibility
+- Improve the UI for the Light theme
